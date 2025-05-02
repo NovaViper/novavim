@@ -20,6 +20,7 @@ require("conform").setup({
 
     -- Where I store random cloned git repos
     -- I probably shouldn't be auto-formatting codebases that aren't mine
+    -- TODO: Need to change this
     -- if bufname:match("/Documents/repos/*") then
     --   return nil
     -- end
@@ -47,4 +48,4 @@ end, { range = true })
 
 -- Called when auto-format is disabled for a language or folder,
 -- but we want to format it anyways
-vim.cmd.cabbrev("fmt", "Fmt")
+cabbrev("fmt", "Fmt")
