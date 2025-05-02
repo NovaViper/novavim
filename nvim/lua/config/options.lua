@@ -9,6 +9,7 @@ o.showcmd = true
 o.clipboard = "unnamedplus" -- Set to system clipboard
 o.undofile = true -- Persistent undo
 o.mouse = "nvi" -- Enable mouse
+o.mousemoveevent = true -- Enable mouse move events (support for hover actions)
 
 o.cursorline = true -- Highlight the line that the cursor is on
 o.cursorlineopt = "both"
@@ -40,3 +41,10 @@ o.backup = false
 o.writebackup = false
 
 g.mapleader = " "
+
+-- Better tab switching
+--- useopen: If included, jump to the first open window in the current tab page that contains the specified buffer (if there is one). Otherwise: Do not examine other windows
+--- usetab: Like "useopen", but also consider windows in other tab pages
+--- newtab: Like "split", but open a new tab page. Overrules "split" when both are present
+-- split: split the current window before loading a buffer for a quickfix command that display errors.Otherwise: do not split, use current window (when used in the quickfix window: the previously used window or split if there is no other window)
+o.switchbuf = "useopen,usetab,newtab"
