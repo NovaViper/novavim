@@ -1,6 +1,6 @@
 -- Global variables
-local o = vim.o
-local g = vim.g
+o = vim.o
+g = vim.g
 
 o.termguicolors = true
 
