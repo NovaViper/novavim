@@ -17,6 +17,8 @@ let
     yazi-nvim
     snacks-nvim
     which-key-nvim
+    telescope-nvim
+    telescope-fzf-native-nvim
 
     # Completions
     blink-cmp
@@ -46,7 +48,6 @@ let
     neogit
     plenary-nvim
     diffview-nvim
-    fzf-lua
 
     nvim-web-devicons # For bufferline
   ];
