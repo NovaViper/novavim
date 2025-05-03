@@ -32,6 +32,7 @@ in
         # lua
         ''
           require("config")
+          require("lsp")
         '';
 
       # The same as 'plugins' except for when running in dev mode add the absolute paths to 'devPluginPaths'

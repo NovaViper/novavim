@@ -1,1 +1,3 @@
-require("snacks").setup()
+Snacks = require("snacks")
+
+Snacks.setup()

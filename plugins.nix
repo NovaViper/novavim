@@ -4,12 +4,8 @@
   neovimPlugins,
 }:
 let
-  #tree-sitter-plugins = p: with p; [ tree-sitter-org-nvim ];
-
   pkgsPlugins = with pkgs.vimPlugins; [
     # Basic essentials
-    nvim-treesitter
-    #(nvim-treesitter.withPlugins tree-sitter-plugins)
     nvim-treesitter.withAllGrammars
     nvim-lspconfig
 
@@ -30,6 +26,7 @@ let
     rainbow-delimiters-nvim
     indent-blankline-nvim
     helpview-nvim # Very pretty vimdocs
+    gitsigns-nvim
     #render-markdown-nvim
     #markdown-preview-nvim
 
