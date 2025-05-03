@@ -1,44 +1,61 @@
--- Create a map with noremap set to false
--- Need to also set remap to true for some binds to work
-local function mkRemap(mode, key, map)
-  vim.keymap.set(mode, key, map, { remap = true, noremap = false, silent = true })
+-- Term definitions:
+-- "recursive" means that the mapping is expanded to a result, then the result
+-- is expanded to another and so function til either the result is no longer
+-- mapped to anything else or a non-recursive mapping is applied; at that point,
+-- Vim's default meaning of the final result is applied
+--
+-- "non-recursive" means the mapping is only expanded once, and that result is
+-- applied/executed
+
+-- Create a recursive keymap
+-- remap is enabled for some maps to work properly
+local function mkRemap(mode, key, map, desc)
+  vim.keymap.set(mode, key, map, { desc = desc, remap = true, noremap = false, silent = true })
 end
 
--- Create a map with noremap set to true
-local function mkNoremap(mode, key, map)
-  vim.keymap.set(mode, key, map, { noremap = true, silent = true })
+-- Create a nonrecursive keymap
+local function mkNoremap(mode, key, map, desc)
+  vim.keymap.set(mode, key, map, { desc = desc, noremap = true, silent = true })
 end
 
-function map(key, map)
-  mkRemap("", key, map)
+-- Create recursive "root" keymap that applies to "normal", "visual+select", and "operator-pending" modes
+function map(key, map, desc)
+  mkRemap("", key, map, desc)
 end
 
-function noremap(key, map)
-  mkNoremap("", key, map)
+-- Create a non-recursive "root" keymap that applies to "normal", "visual+select", and "operator-pending" modes
+function noremap(key, map, desc)
+  mkNoremap("", key, map, desc)
 end
 
-function nmap(key, map)
-  mkRemap("n", key, map)
+-- Create a recursive keymap that only applies to normal mode
+function nmap(key, map, desc)
+  mkRemap("n", key, map, desc)
 end
 
-function vmap(key, map)
-  mkRemap("v", key, map)
+-- Create a recursive keymap that only applies to visual+select modes
+function vmap(key, map, desc)
+  mkRemap("v", key, map, desc)
 end
 
-function imap(key, map)
-  mkRemap("i", key, map)
+-- Create a recursive keymap that only applies to insert mode
+function imap(key, map, desc)
+  mkRemap("i", key, map, desc)
 end
 
-function nnoremap(key, map)
-  mkNoremap("n", key, map)
+-- Create a non-recursive keymap that only applies to normal mode
+function nnoremap(key, map, desc)
+  mkNoremap("n", key, map, desc)
 end
 
-function vnoremap(key, map)
-  mkNoremap("v", key, map)
+-- Create a non-recursive keymap that only applies to visual+select modes
+function vnoremap(key, map, desc)
+  mkNoremap("v", key, map, desc)
 end
 
-function inoremap(key, map)
-  mkNoremap("i", key, map)
+-- Create a non-recursive keymap that only applies to insert mode
+function inoremap(key, map, desc)
+  mkNoremap("i", key, map, desc)
 end
 
 -- Paste and format, then jump to where we were before the selection. Means we
@@ -60,4 +77,4 @@ vmap("#", "gcgv")
 nnoremap("<Esc>", "<cmd>nohlsearch<CR>")
 
 -- Neogit
-map("<leader>gg", ":Neogit<CR>")
+map("<leader>gg", ":Neogit<CR>", "Open Neogit")
