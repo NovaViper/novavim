@@ -35,9 +35,6 @@ local cfg = {
       ["/nix/store"] = false,
     },
   },
-
-  -- Open files in new tab
-  win = snacks_new_tab,
 }
 
 -- Don't make `.direnv` files searchable. We need to gate this behind a
@@ -46,41 +43,3 @@ local cfg = {
 if Snacks.git.get_root() ~= nil then
   cfg.filter.paths[Snacks.git.get_root() .. "/.direnv"] = false
 end
-
--- i for implementation
-nnoremap("<leader>i", function()
-  Snacks.picker.lsp_definitions(cfg)
-end)
-
--- u for usage
-nnoremap("<leader>u", function()
-  Snacks.picker.lsp_references(cfg)
-end)
-
--- Custom formatting for diagnostics, to only show the diagnostic and the filename
-local format_function = function(item, picker)
-  local ret = {}
-  local diag = item.item
-  if item.severity then
-    vim.list_extend(ret, Snacks.picker.format.severity(item, picker))
-  end
-
-  local message = diag.message
-  ret[#ret + 1] = { message }
-  Snacks.picker.highlight.markdown(ret)
-  ret[#ret + 1] = { " | " }
-
-  vim.list_extend(ret, Snacks.picker.format.filename(item, picker))
-  return ret
-end
-
--- w for workspace. Shows workspace diagnostics, so you can see errors in other
--- files. Great for Gleam dev, since the Gleam LSP gets stuck if one file has errors.
--- Note that this doesn't work for all LSPs!
-nnoremap("<leader>w", function()
-  Snacks.picker.diagnostics({
-    layout = "custom",
-    format = format_function,
-    win = snacks_new_tab,
-  })
-end)
