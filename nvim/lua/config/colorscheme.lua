@@ -1,6 +1,9 @@
-local dracula = require("dracula")
+local catppuccin = require("catppuccin")
+catppuccin.setup({
+  flavour = "mocha",
+})
 
-vim.cmd([[colorscheme dracula]])
+vim.cmd([[colorscheme catppuccin]])
 
 -- Colorize hex codes
 require("nvim-highlight-colors").setup({})

@@ -42,7 +42,7 @@ let
 
   # Check https://github.com/NixNeovim/NixNeovimPlugins/blob/main/plugins.md
   extraPlugins = with neovimPlugins.packages.${pkgs.system}; [
-    dracula-nvim
+    catppuccin
 
     # git setup
     neogit
