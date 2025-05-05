@@ -41,11 +41,14 @@ in
       # The impure absolute paths to nvim plugins the relative paths of which should be in devExcludedPlugins
       devPluginPaths = lib.singleton "~/Documents/novavim/nvim";
 
+      extraLuaPackages = ps: [ ps.magick ];
+
       # Extra packages to be put in neovim's PATH
       extraBinPath = with pkgs; [
         nixd
         nil
         stylua
+        imagemagick
       ];
 
       # Check https://github.com/NixNeovim/NixNeovimPlugins/blob/main/plugins.md for updates
