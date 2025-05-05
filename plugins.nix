@@ -36,6 +36,7 @@ let
     # Neat
     bufferline-nvim
     lualine-nvim
+    cord-nvim
 
     # Other
     lazydev-nvim
