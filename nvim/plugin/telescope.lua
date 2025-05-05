@@ -29,6 +29,8 @@ telescope.setup({
 
 telescope.load_extension("fzf")
 
+nnoremap("<leader>ff", builtin.find_files, "Telescope find files")
 nnoremap("<leader>fg", builtin.live_grep, "Telescope live grep")
 nnoremap("<leader>fh", builtin.help_tags, "Telescope help tags")
+nnoremap("<leader>fb", builtin.buffers, "Telescope find buffer")
 nnoremap("<space><space>", builtin.buffers, "Telescope find buffer")
