@@ -31,7 +31,6 @@ let
     gitsigns-nvim
     render-markdown-nvim
     markdown-preview-nvim
-    image-nvim
 
     # Neat
     bufferline-nvim

@@ -83,6 +83,12 @@ map("<leader>gg", ":Neogit<CR>", "Open Neogit")
 
 ------------- Basics
 nnoremap("<leader>fn", "<cmd>enew<cr>", "Create new file")
+nnoremap("<leader>bk", function()
+  Snacks.bufdelete()
+end, "Kill buffer")
+nnoremap("<leader>bK", function()
+  Snacks.bufdelete.other()
+end, "Kill all but pinned/current buffers")
 
 -- Force close window keybinding
 nnoremap("<leader>wd", "<cmd>close<cr>", "Delete window")

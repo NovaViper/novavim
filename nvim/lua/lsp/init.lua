@@ -4,6 +4,7 @@ lspconfig = require("lspconfig")
 -- Enable inlay hints
 vim.lsp.inlay_hint.enable(true)
 
+require("lsp.snacks")
 require("lsp.keybinds")
 
 require("lsp.lua")
