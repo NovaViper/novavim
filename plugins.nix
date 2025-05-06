@@ -10,7 +10,6 @@ let
     nvim-lspconfig
 
     # Features
-    nvim-autopairs
     tiny-inline-diagnostic-nvim
     auto-session
     conform-nvim
@@ -18,8 +17,7 @@ let
     snacks-nvim
     mini-nvim
     which-key-nvim
-    telescope-nvim
-    telescope-fzf-native-nvim
+    todo-comments-nvim
 
     # Completions
     blink-cmp
