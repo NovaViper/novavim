@@ -16,6 +16,7 @@ let
     conform-nvim
     yazi-nvim
     snacks-nvim
+    mini-nvim
     which-key-nvim
     telescope-nvim
     telescope-fzf-native-nvim

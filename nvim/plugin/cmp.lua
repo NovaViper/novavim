@@ -12,15 +12,6 @@ cmp.setup({
       auto_show = true,
       auto_show_delay_ms = 0,
     },
-
-    -- This should be done with nvim-autopairs but it's currently not woorking.
-    -- See https://github.com/windwp/nvim-autopairs/issues/477
-    accept = {
-      auto_brackets = {
-        enabled = true,
-      },
-    },
-
     menu = {
       draw = {
         columns = { { "kind_icon" }, { "label", "label_description" } },
