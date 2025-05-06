@@ -44,7 +44,7 @@ in
         devExcludedPlugins = lib.singleton ./nvim;
 
         # The impure absolute paths to nvim plugins the relative paths of which should be in devExcludedPlugins
-        devPluginPaths = lib.singleton "~/Documents/novavim/nvim";
+        devPluginPaths = lib.singleton "~/Documents/Projects/novavim/nvim";
 
         extraLuaPackages = ps: [ ps.magick ];
 
