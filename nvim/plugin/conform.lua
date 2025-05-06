@@ -19,10 +19,9 @@ require("conform").setup({
 
     -- Where I store random cloned git repos
     -- I probably shouldn't be auto-formatting codebases that aren't mine
-    -- TODO: Need to change this
-    -- if bufname:match("/Documents/repos/*") then
-    --   return nil
-    -- end
+    if bufname:match("~/Documents/Projects/*") then
+      return nil
+    end
 
     -- Calls conform.format(). We put our options in default_format_opts
     -- above, so they're applied when calling :fmt too

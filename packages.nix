@@ -23,6 +23,7 @@ let
     nodePackages.bash-language-server
     # PHP, CSS, Angular, JavaScript, Json
     nodePackages.prettier
+    prettierd
 
     # checkers spell
     hunspell
