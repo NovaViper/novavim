@@ -13,8 +13,8 @@ cmp.setup({
       auto_show_delay_ms = 0,
     },
 
-    -- I'd prefer to have this through nvim-autopairs, but I couldn't get it
-    -- working. See https://github.com/windwp/nvim-autopairs/issues/477
+    -- This should be done with nvim-autopairs but it's currently not woorking.
+    -- See https://github.com/windwp/nvim-autopairs/issues/477
     accept = {
       auto_brackets = {
         enabled = true,
