@@ -40,6 +40,7 @@ o.titlestring = vim.fn.getcwd():match("([^/]+)$") .. ": %t"
 o.backup = false
 o.writebackup = false
 
+-- Change leader key to space
 g.mapleader = " "
 
 -- Better tab switching
@@ -48,3 +49,13 @@ g.mapleader = " "
 --- newtab: Like "split", but open a new tab page. Overrules "split" when both are present
 -- split: split the current window before loading a buffer for a quickfix command that display errors.Otherwise: do not split, use current window (when used in the quickfix window: the previously used window or split if there is no other window)
 o.switchbuf = "useopen,usetab,newtab"
+
+-- Always show the tab label line
+o.showtabline = 3
+
+-- Enable global statusline
+o.laststatus = 3
+
+-- Save pretty much everything to a session save, needed for auto-session and
+-- scope
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions,globals"

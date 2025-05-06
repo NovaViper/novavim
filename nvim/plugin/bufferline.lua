@@ -1,29 +1,23 @@
 local bfl = require("bufferline")
+local scope = require("scope")
 
 bfl.setup({
   options = {
-    mode = "tabs", -- Show only tabpages
+    mode = "buffers", -- Show only tabpages
     diagnostics = "nvim_lsp",
     color_icons = true,
-    --separator_style = "slope",
+    numbers = "ordinal",
+    sort_by = "insert_after_current",
     hover = {
       enabled = true,
       delay = 10,
       reveal = { "close" },
     },
-    diagnostics = {
-      [vim.diagnostic.severity.ERROR] = { enabled = true, icon = " " },
-      [vim.diagnostic.severity.WARN] = { enabled = true, icon = " " },
-      [vim.diagnostic.severity.INFO] = { enabled = true, icon = " " },
-      [vim.diagnostic.severity.HINT] = { enabled = true, icon = "󱧢 " },
-    },
-    gitsigns = {
-      added = { enabled = true, icon = "+" },
-      changed = { enabled = true, icon = "~" },
-      deleted = { enabled = true, icon = "-" },
-    },
   },
 })
+
+-- Setup scope
+scope.setup({})
 
 -- Tab management
 nnoremap("th", ":tabprev<CR>")

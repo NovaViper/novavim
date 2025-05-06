@@ -25,13 +25,6 @@ let
     nodePackages.prettier
 
     # checkers spell
-    (aspellWithDicts (
-      dicts: with dicts; [
-        en
-        en-computers
-        en-science
-      ]
-    ))
     hunspell
     hunspellDicts.en_US
 
@@ -43,7 +36,6 @@ let
 
     # yazi
     yazi
-    pdf-tools
     cmake
   ];
 in

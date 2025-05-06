@@ -34,6 +34,7 @@ let
 
     # Neat
     bufferline-nvim
+    scope-nvim # For filtering buffers per tab
     lualine-nvim
     cord-nvim
 

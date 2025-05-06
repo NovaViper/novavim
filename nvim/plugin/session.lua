@@ -30,6 +30,10 @@ session.setup({
   -- Only create a new session if you're at the root of a git repo
   auto_create = at_repo_root,
 
+  -- Use Scope's commands
+  pre_save_cmds = { "lua vim.cmd([[ScopeSaveState]])" },
+  post_restore_cmds = { "lua vim.cmd([[ScopeLoadState]])" },
+
   -- If you're in a subdirectory of a git repo, and neovim wasn't called with a
   -- specific file to be opened, activate the session for the repo's root.
   no_restore_cmds = {
@@ -51,8 +55,3 @@ session.setup({
     end,
   },
 })
-
--- We save most things to session, but don't save buffers and localoptions.
--- Buffers keep growing forever and lag the session - tabs are forever. And
--- localoptions are typically done for testing and shouldn't stay around.
-vim.o.sessionoptions = "blank,curdir,folds,help,tabpages,winsize,winpos,terminal"
