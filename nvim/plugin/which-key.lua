@@ -1,9 +1,5 @@
 local wk = require("which-key")
-wk.setup({
-  options = {
-    preset = "modern",
-  },
-})
+wk.setup({ preset = "helix" })
 
 wk.add({
   {

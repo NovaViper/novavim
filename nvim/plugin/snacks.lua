@@ -10,41 +10,18 @@ Snacks.setup({
       fuzzy = true, -- use fuzzy matching
       frecency = true, -- Based on how often I open a file
     },
-    explorer = {},
+    --explorer = {},
   },
-  terminal = {
-    enable = true,
-  },
-  toggle = {
-    enabled = true,
-    map = vim.keymap.set, -- keymap.set function to use
-    which_key = true, -- integrate with which-key to show enabled/disabled icons and colors
-    notify = true, -- show a notification when toggling
-  },
-  image = {
-    enabled = true,
-    formats = {
-      "png",
-      "jpg",
-      "jpeg",
-      "gif",
-      "bmp",
-      "webp",
-      "tiff",
-      "heic",
-      "avif",
-      "mp4",
-      "mov",
-      "avi",
-      "mkv",
-      "webm",
-      "pdf",
-    },
-    doc = {
-      enable = true,
-    },
-  },
+  scratch = { enabled = true },
+  terminal = { enable = true },
+  toggle = { enabled = true },
+  image = { enabled = true },
 })
+
+-- Enable animations
+vim.g.snacks_animate = true
+
+Snacks.toggle.option("wrap", { name = "Wrap" }):map("<leader>uw")
 
 -- Top Pickers & Explorer
 nnoremap("<space><space>", function()
@@ -69,3 +46,11 @@ end, "Find projects")
 nnoremap("<leader>/", function()
   Snacks.picker.grep()
 end, "Find with live grep")
+
+-- Scratch buffer
+nnoremap("<leader>.", function()
+  Snacks.scratch()
+end, "Toggle scratch buffer")
+nnoremap("<leader>S", function()
+  Snacks.scratch()
+end, "Select scratch buffer")

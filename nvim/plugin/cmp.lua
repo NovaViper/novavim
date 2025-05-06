@@ -8,6 +8,15 @@ cmp.setup({
   completion = {
     -- Make copmletions care about before and after the cursor
     keyword = { range = "full" },
+    list = {
+      selection = {
+        preselect = true,
+        -- ghosttext is preferable
+        auto_insert = false,
+      },
+    },
+
+    ghost_text = { enabled = true },
     documentation = {
       auto_show = true,
       auto_show_delay_ms = 0,
@@ -28,7 +37,8 @@ cmp.setup({
       },
     },
   },
-  sources = {
+  sources = { -- Removing buffer completion from the defaults
+    default = { "lsp", "path", "snippets", "buffer", "lazydev" },
     -- Loading lazydev through blink leads to better signature help and overall
     -- a better experience
     providers = {
@@ -42,16 +52,12 @@ cmp.setup({
   },
   signature = {
     enabled = true,
-    window = {
-      show_documentation = true,
-    },
+    window = { show_documentation = true },
   },
   cmdline = {
     enabled = true,
     completion = {
-      menu = {
-        auto_show = true,
-      },
+      menu = { auto_show = true },
     },
   },
   -- Prioritizes exact matches higher
