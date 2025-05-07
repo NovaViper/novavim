@@ -1,14 +1,5 @@
 Snacks = require("snacks")
 
--- set the dir to the directory of the current buffer if possible, then
--- the dir of the alternate buffer, then the cwd
-local get_dir_with_fallback = function()
-  local bufdir = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ":h")
-  return bufdir ~= "" and bufdir
-    or vim.fn.bufexists(vim.fn.bufnr("#")) and vim.fn.fnamemodify(vim.fn.bufname(vim.fn.bufnr("#")), ":h")
-    or vim.uv.cwd()
-end
-
 Snacks.setup({
   --explorer = { enabled = true },
   notifier = { enabled = true },
@@ -45,12 +36,6 @@ end, "Find buffers")
 nnoremap("<leader>,", function()
   Snacks.picker.buffers()
 end, "Find buffers")
-nnoremap("<leader>ff", function()
-  Snacks.picker.files({ cwd = get_dir_with_fallback() })
-end, "Find files from current directory")
-nnoremap("<leader>fF", function()
-  Snacks.picker.files({ cwd = Snacks.git.get_root() })
-end, "Find files from top-level")
 nnoremap("<leader>fr", function()
   Snacks.picker.recent()
 end, "Find recent files")
@@ -85,6 +70,7 @@ end, "Git log file")
 nnoremap("<leader>tl", function()
   Snacks.picker.todo_comments()
 end, "List TODO comments")
+-- Taken from https://linkarzu.com/posts/neovim/snacks-picker/
 nnoremap("<leader>tt", function()
   Snacks.picker.grep({
     show_empty = true,

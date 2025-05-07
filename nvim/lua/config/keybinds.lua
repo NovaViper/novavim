@@ -82,19 +82,50 @@ nnoremap("<Esc>", "<cmd>nohlsearch<CR>")
 map("<leader>gg", ":Neogit<CR>", "Open Neogit")
 
 ------------- Basics
-nnoremap("<leader>fn", "<cmd>enew<cr>", "Create new file")
+nnoremap("<leader>fN", "<cmd>ene | startinsert<cr>", "Create a new empty file")
 nnoremap("<leader>bk", function()
   Snacks.bufdelete()
 end, "Kill buffer")
 nnoremap("<leader>bK", function()
   Snacks.bufdelete.other()
-end, "Kill all but pinned/current buffers")
+end, "Kill all but current buffers")
 
 -- Force close window keybinding
 nnoremap("<leader>wd", "<cmd>close<cr>", "Delete window")
-nnoremap("<leader>fs", function()
+
+--- Better Basic keybindings
+-- Smart file creation, ask for a file name before creating a new file
+nnoremap("<leader>fn", function()
+  -- Prompt the user for the filename
   local filename = vim.fn.input("Enter Filename: ")
-  vim.cmd("write " .. filename)
+  -- Check if the filename is empty
+  if filename ~= "" then
+    -- Use vim's 'edit' command to create a new file
+    vim.cmd("edit " .. filename)
+    vim.cmd("startinsert")
+  else
+    vim.notify("Filename cannot be empty")
+  end
+end, "Create a new named file")
+
+-- Smart file save, don't prompt when it's an existing file but prompt when it's
+-- a new file
+nnoremap("<leader>fs", function()
+  if
+    vim.api.nvim_get_option_value("buflisted", { buf = 0 })
+    and not vim.api.nvim_get_option_value("readonly", { buf = 0 })
+  then -- disregard unlisted buffers
+    local filename = ""
+    local curbuf = vim.api.nvim_buf_get_name(0)
+    if not curbuf ~= nil then -- If there is no name given
+      filename = curbuf
+    else
+      filename = vim.fn.input("Enter Filename: ")
+    end
+    vim.cmd("write " .. filename)
+  else
+    vim.notify("Buffer is not writable or is unlisted")
+  end
 end, "Save file")
 
 -- Tab management
