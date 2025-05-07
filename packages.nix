@@ -21,11 +21,15 @@ let
     shellcheck
     bashdb
     nodePackages.bash-language-server
+    #fish
+    fish-lsp
     # PHP, CSS, Angular, JavaScript, Json
     nodePackages.prettier
     prettierd
     # Justfile
     just-lsp
+    # Markdown
+    marksman
 
     # checkers spell
     hunspell
