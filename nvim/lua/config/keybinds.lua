@@ -28,6 +28,16 @@ function noremap(key, map, desc)
   mkNoremap("", key, map, desc)
 end
 
+-- Create recursive "root" keymap that applies to any given mode(s)
+function mapany(modes, key, map, desc)
+  mkRemap(modes, key, map, desc)
+end
+
+-- Create a non-recursive "root" keymap that applies to given mode(s)
+function noremapany(modes, key, map, desc)
+  mkNoremap(modes, key, map, desc)
+end
+
 -- Create a recursive keymap that only applies to normal mode
 function nmap(key, map, desc)
   mkRemap("n", key, map, desc)

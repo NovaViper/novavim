@@ -18,6 +18,7 @@ let
     mini-nvim
     which-key-nvim
     todo-comments-nvim
+    trouble-nvim
 
     # Completions
     blink-cmp

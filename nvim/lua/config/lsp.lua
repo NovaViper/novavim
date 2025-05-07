@@ -76,3 +76,6 @@ end, "Show code usage")
 noremap("<leader>lw", function()
   Snacks.picker.diagnostics()
 end, "Show diagnostics from entire workspace")
+
+-- Open trouble
+mapany({ "n", "i" }, "<leader>lt", "<cmd>Trouble diagnostics toggle<cr>", "Open trouble")
