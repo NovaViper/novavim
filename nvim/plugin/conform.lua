@@ -5,10 +5,11 @@ require("conform").setup({
     sh = { "shfmt" },
     fish = { "fish_indent" },
     python = { "isort", "black" },
+    markdown = { "prettierd", "prettier", stop_after_first = true },
     rust = { "rustfmt", lsp_format = "fallback" },
     jsonc = { "prettierd", "prettier", stop_after_first = true },
     json = { "prettierd", "prettier", stop_after_first = true },
-    justfile = { "just" },
+    just = { "just" },
     yaml = { "prettierd", "prettier", stop_after_first = true },
     css = { "prettierd", "prettier", "stylelint" },
     html = { "prettierd", "prettier", stop_after_first = true },
@@ -24,7 +25,7 @@ require("conform").setup({
 
     -- Where I store random cloned git repos
     -- I probably shouldn't be auto-formatting codebases that aren't mine
-    if bufname:match("~/Documents/Repos/*") then
+    if bufname:match("/Documents/Repos/*") then
       return nil
     end
 
