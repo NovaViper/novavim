@@ -1,12 +1,17 @@
 require("conform").setup({
   formatters_by_ft = {
-    lua = { "stylua" },
-    -- Conform will run multiple formatters sequentially
-    python = { "isort", "black" },
-    -- You can customize some of the format options for the filetype (:help conform.format)
-    rust = { "rustfmt", lsp_format = "fallback" },
-    javascript = { "prettier" },
     nix = { "nixfmt" },
+    lua = { "stylua" },
+    sh = { "shfmt" },
+    fish = { "fish_indent" },
+    python = { "isort", "black" },
+    rust = { "rustfmt", lsp_format = "fallback" },
+    jsonc = { "prettierd", "prettier", stop_after_first = true },
+    json = { "prettierd", "prettier", stop_after_first = true },
+    justfile = { "just" },
+    yaml = { "prettierd", "prettier", stop_after_first = true },
+    css = { "prettierd", "prettier", "stylelint" },
+    html = { "prettierd", "prettier", stop_after_first = true },
   },
 
   format_on_save = function(bufnr)

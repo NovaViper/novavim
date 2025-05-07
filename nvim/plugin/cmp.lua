@@ -1,6 +1,10 @@
 cmp = require("blink.cmp")
 lsp_capabilities = cmp.get_lsp_capabilities()
 
+vim.lsp.config("*", {
+  capabilities = lsp_capabilities,
+})
+
 cmp.setup({
   -- Make completion accept binding use enter key
   -- See https://cmp.saghen.dev/configuration/keymap.html#enter for bindings

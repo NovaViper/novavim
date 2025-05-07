@@ -24,6 +24,8 @@ let
     # PHP, CSS, Angular, JavaScript, Json
     nodePackages.prettier
     prettierd
+    # Justfile
+    just-lsp
 
     # checkers spell
     hunspell

@@ -1,7 +1,7 @@
 o.wrap = true
 
 require("render-markdown").setup({
-  completions = { lsp = { enabled = true } },
+  completions = { lsp = { enabled = true }, blink = { enabled = true } },
 
   render_modes = true,
 

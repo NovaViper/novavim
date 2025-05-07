@@ -1,5 +1,4 @@
-lspconfig.nixd.setup({
-  capabilities = lsp_capabilities,
+return {
   cmd = {
     "nixd",
     "--inlay-hints=false",
@@ -10,4 +9,4 @@ lspconfig.nixd.setup({
   --  nixpkgs.expr = "import <nixpkgs> { }",
   --   options.nixos.expr = "${hostOptions}",
   -- },
-})
+}

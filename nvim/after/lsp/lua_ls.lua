@@ -1,5 +1,4 @@
-lspconfig.lua_ls.setup({
-  capabilities = lsp_capabilities,
+return {
   settings = {
     lua = {
       hint = {
@@ -13,6 +12,4 @@ lspconfig.lua_ls.setup({
       },
     },
   },
-})
-
-require("lazydev").setup()
+}

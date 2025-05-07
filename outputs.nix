@@ -37,7 +37,10 @@ in
           # lua
           ''
             require("config")
-            require("lsp")
+             
+            -- Add to this whenever you add a new server to the `lsp` folder!
+            -- Ridiculous that nvim can't load them for you as far as I can tell
+            vim.lsp.enable({"bashls", "fish_lsp", "jsonls", "just", "lua_ls", "marksman", "nixd", "pyright", "rust_analyzer", "yamlls"})
           '';
 
         # The same as 'plugins' except for when running in dev mode add the absolute paths to 'devPluginPaths'
