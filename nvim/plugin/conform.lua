@@ -24,7 +24,7 @@ require("conform").setup({
 
     -- Where I store random cloned git repos
     -- I probably shouldn't be auto-formatting codebases that aren't mine
-    if bufname:match("~/Documents/Projects/*") then
+    if bufname:match("~/Documents/Repos/*") then
       return nil
     end
 
