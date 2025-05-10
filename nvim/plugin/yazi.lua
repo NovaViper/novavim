@@ -1,7 +1,7 @@
 local yazi = require("yazi")
 
 yazi.setup({
-  --open_for_directories = true,
+  open_for_directories = true,
   open_multiple_tabs = true,
   integrations = {
     grep_in_directory = "snacks.picker",
@@ -11,7 +11,7 @@ yazi.setup({
 })
 
 -- Force yaz to replace netrw
---vim.g.loaded_netrwPlugin = 1
+vim.g.loaded_netrwPlugin = 1
 
 nnoremap("<leader>ff", function()
   yazi.yazi()
