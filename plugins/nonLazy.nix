@@ -1,5 +1,4 @@
 {
-  lib,
   pkgs,
   neovimPlugins,
 }:
@@ -8,6 +7,7 @@ let
     # Basic essentials
     nvim-treesitter.withAllGrammars
     nvim-lspconfig
+    lz-n
 
     # Features
     tiny-inline-diagnostic-nvim
