@@ -12,13 +12,3 @@ yazi.setup({
 
 -- Force yaz to replace netrw
 vim.g.loaded_netrwPlugin = 1
-
-nnoremap("<leader>ff", function()
-  yazi.yazi()
-end, "Open yazi at current file")
-
-noremap("<leader>fg", function()
-  yazi.yazi(nil, vim.fn.getcwd())
-end, "Open yazi at working directory")
-
-noremap("<c-up>", "<cmd>Yazi toggle<cr>", "Resume the last yazi session")
