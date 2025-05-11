@@ -27,6 +27,10 @@ in
   packages = internals.forEachSystem (
     pkgs:
     let
+      # Lists of derivations that we grab from external sources (nixpkgs and
+      # neovimPlugins)
+      # Check https://github.com/NixNeovim/NixNeovimPlugins/blob/main/plugins.md for updates
+      plugins = import ./plugins.nix { inherit lib pkgs neovimPlugins; };
       packages = import ./packages.nix { inherit pkgs; };
     in
     {
@@ -36,6 +40,12 @@ in
         initLua =
           # lua
           ''
+            -- Uncomment when you want to profile nvim startup. Be sure to have
+            -- the snacks.nvim repo cloned for this to work!
+
+            --vim.opt.rtp:append("~/Documents/Repos/snacks.nvim")
+            --require("snacks.profiler").startup()
+
             require("config")
              
             -- Add to this whenever you add a new server to the `lsp` folder!
@@ -43,19 +53,23 @@ in
             vim.lsp.enable({"bashls", "fish_lsp", "jsonls", "just", "lua_ls", "marksman", "nixd", "pyright", "rust_analyzer", "yamlls"})
           '';
 
-        # The same as 'plugins' except for when running in dev mode add the absolute paths to 'devPluginPaths'
-        devExcludedPlugins = lib.singleton ./nvim;
+        # List of plugins to load automatically
+        plugins.start = plugins;
 
-        # The impure absolute paths to nvim plugins the relative paths of which should be in devExcludedPlugins
-        devPluginPaths = lib.singleton "~/Documents/Projects/novavim/nvim";
+        # List of plugins to not load automatically (for lazy loading plugins)
+        #plugins.opt = [];
 
+        # Extra lua packages (non vim plugins) to put into neovim's PATH
         extraLuaPackages = ps: [ ps.magick ];
 
         # Extra packages to be put in neovim's PATH
         extraBinPath = packages;
 
-        # Check https://github.com/NixNeovim/NixNeovimPlugins/blob/main/plugins.md for updates
-        plugins = import ./plugins.nix { inherit lib pkgs neovimPlugins; };
+        # Plugins which can be reloaded without rebuilding
+        plugins.dev.config = {
+          pure = ./nvim;
+          impure = "~/Documents/Projects/novavim/nvim";
+        };
       };
     }
   );
