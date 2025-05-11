@@ -13,6 +13,7 @@ let
     tiny-inline-diagnostic-nvim
     auto-session
     conform-nvim
+    ts-comments-nvim
     yazi-nvim
     snacks-nvim
     mini-nvim
