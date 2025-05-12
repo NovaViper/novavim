@@ -14,11 +14,8 @@ let
     auto-session
     conform-nvim
     ts-comments-nvim
-    yazi-nvim
     snacks-nvim
     mini-nvim
-    which-key-nvim
-    todo-comments-nvim
     trouble-nvim
 
     # Completions
@@ -28,16 +25,12 @@ let
     nvim-highlight-colors
     rainbow-delimiters-nvim
     indent-blankline-nvim
-    helpview-nvim # Very pretty vimdocs
     gitsigns-nvim
     render-markdown-nvim
     markdown-preview-nvim
 
     # Neat
-    bufferline-nvim
-    scope-nvim # For filtering buffers per tab
     lualine-nvim
-    cord-nvim
 
     # Other
     lazydev-nvim

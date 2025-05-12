@@ -69,7 +69,6 @@ function inoremap(key, map, desc)
 end
 
 local Snacks = require("snacks")
-local yazi = require("yazi")
 
 --- Some mappings taken from https://github.com/ChUrl/flake-nixinator/blob/0b53813c9487965585d723ed3c5f65440448d1e4/home/modules/neovim/mappings.nix
 
@@ -154,13 +153,9 @@ end
 map("<leader>gg", ":Neogit<CR>", "Open Neogit")
 
 ---- Yazi
-nnoremap("<leader>ff", function()
-  yazi.yazi()
-end, "Open yazi at current file")
+nnoremap("<leader>ff", "<cmd>Yazi<cr>", "Open yazi at current file")
 
-noremap("<leader>fg", function()
-  yazi.yazi(nil, vim.fn.getcwd())
-end, "Open yazi at working directory")
+noremap("<leader>fg", "<cmd>Yazi cwd<cr>", "Open yazi at working directory")
 
 noremap("<c-up>", "<cmd>Yazi toggle<cr>", "Resume the last yazi session")
 
