@@ -34,15 +34,50 @@
       );
     in
     {
+      # These neovim* outputs are used for testing custom packaged content in
+      # REPL.
+
+      # We comment this out for now, because `packagesFromDirectoryRecursive` will
+      # error if the folder is empty.
+      neovimStartPlugins = forEachSystem (
+        pkgs: { }
+        # (lib.packagesFromDirectoryRecursive {
+        #   inherit (pkgs) callPackage;
+        #   directory = ./other/startPlugins;
+        # })
+      );
+
+      # See above!
+      neovimOptPlugins = forEachSystem (
+        pkgs: { }
+        # (lib.packagesFromDirectoryRecursive {
+        #   inherit (pkgs) callPackage;
+        #   directory = ./other/optPlugins;
+        # })
+      );
+
+      neovimBinaries = forEachSystem (
+        pkgs: { }
+        # (lib.packagesFromDirectoryRecursive {
+        #   inherit (pkgs) callPackage;
+        #   directory = ./other/binaries;
+        # })
+      );
+
       packages = forEachSystem (
         pkgs:
         let
           # Lists of derivations that we grab from external sources (nixpkgs and
           # neovimPlugins)
           # Check https://github.com/NixNeovim/NixNeovimPlugins/blob/main/plugins.md for updates
-          nonLazyPlugins = import ./nonLazy.nix { inherit pkgs neovimPlugins; };
-          lazyPlugins = import ./lazy.nix { inherit pkgs neovimPlugins; };
-          packages = import ./packages.nix { inherit pkgs; };
+          startPlugins = import ./startPlugins.nix { inherit pkgs neovimPlugins; };
+          optPlugins = import ./optPlugins.nix { inherit pkgs neovimPlugins; };
+          binaries = import ./binaries.nix { inherit pkgs; };
+
+          # Derivations of the custom packages/plugins turned into a list.
+          customStartPlugins = builtins.attrValues self.neovimStartPlugins.${pkgs.system};
+          customOptPlugins = builtins.attrValues self.neovimOptPlugins.${pkgs.system};
+          customBinaries = builtins.attrValues self.neovimBinaries.${pkgs.system};
         in
         {
           default = mnw.lib.wrap pkgs {
@@ -66,15 +101,15 @@
               '';
 
             # List of plugins to load automatically
-            plugins.start = nonLazyPlugins;
+            plugins.start = startPlugins ++ customStartPlugins;
             # List of plugins to not load automatically (for lazy loading plugins)
-            plugins.opt = lazyPlugins;
+            plugins.opt = optPlugins ++ customOptPlugins;
+
+            # Extra packages to be put in neovim's PATH
+            extraBinPath = binaries ++ customBinaries;
 
             # Extra lua packages (non vim plugins) to put into neovim's PATH
             extraLuaPackages = ps: [ ps.magick ];
-
-            # Extra packages to be put in neovim's PATH
-            extraBinPath = packages;
 
             # Plugins which can be reloaded without rebuilding
             plugins.dev.config = {
