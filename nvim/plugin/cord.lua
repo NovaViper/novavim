@@ -1,1 +1,1 @@
-require("cord").setup({})
+require("cord").setup()

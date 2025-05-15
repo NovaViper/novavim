@@ -1,5 +1,4 @@
 {
-  lib,
   pkgs,
   neovimPlugins,
 }:
@@ -8,16 +7,15 @@ let
     # Basic essentials
     nvim-treesitter.withAllGrammars
     nvim-lspconfig
+    lz-n
 
     # Features
     tiny-inline-diagnostic-nvim
     auto-session
     conform-nvim
     ts-comments-nvim
-    yazi-nvim
     snacks-nvim
     mini-nvim
-    which-key-nvim
     todo-comments-nvim
     trouble-nvim
 
@@ -28,7 +26,6 @@ let
     nvim-highlight-colors
     rainbow-delimiters-nvim
     indent-blankline-nvim
-    helpview-nvim # Very pretty vimdocs
     gitsigns-nvim
     render-markdown-nvim
     markdown-preview-nvim

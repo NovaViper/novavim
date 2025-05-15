@@ -30,7 +30,8 @@ in
       # Lists of derivations that we grab from external sources (nixpkgs and
       # neovimPlugins)
       # Check https://github.com/NixNeovim/NixNeovimPlugins/blob/main/plugins.md for updates
-      plugins = import ./plugins.nix { inherit lib pkgs neovimPlugins; };
+      nonLazyPlugins = import ./plugins/nonLazy.nix { inherit pkgs neovimPlugins; };
+      lazyPlugins = import ./plugins/lazy.nix { inherit pkgs neovimPlugins; };
       packages = import ./packages.nix { inherit pkgs; };
     in
     {
@@ -47,6 +48,7 @@ in
             --require("snacks.profiler").startup()
 
             require("config")
+            require("lz.n").load('lazy')
              
             -- Add to this whenever you add a new server to the `lsp` folder!
             -- Ridiculous that nvim can't load them for you as far as I can tell
@@ -54,10 +56,9 @@ in
           '';
 
         # List of plugins to load automatically
-        plugins.start = plugins;
-
+        plugins.start = nonLazyPlugins;
         # List of plugins to not load automatically (for lazy loading plugins)
-        #plugins.opt = [];
+        plugins.opt = lazyPlugins;
 
         # Extra lua packages (non vim plugins) to put into neovim's PATH
         extraLuaPackages = ps: [ ps.magick ];

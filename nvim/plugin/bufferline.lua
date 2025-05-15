@@ -1,6 +1,5 @@
 local bfl = require("bufferline")
 local scope = require("scope")
-
 bfl.setup({
   highlights = require("catppuccin.groups.integrations.bufferline").get(),
   options = {
@@ -18,4 +17,4 @@ bfl.setup({
 })
 
 -- Setup scope
-scope.setup({})
+scope.setup()
