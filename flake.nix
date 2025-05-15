@@ -15,13 +15,11 @@
       self,
       nixpkgs,
       neovimPlugins,
-      systems,
-      mnw,
       ...
     }@inputs:
     let
       inherit (nixpkgs) lib;
-      sys = import systems;
+      sys = import inputs.systems;
 
       forEachSystem = function: lib.genAttrs sys (system: function pkgsFor.${system});
       pkgsFor = lib.genAttrs sys (
@@ -80,7 +78,7 @@
           customBinaries = builtins.attrValues self.neovimBinaries.${pkgs.system};
         in
         {
-          default = mnw.lib.wrap pkgs {
+          default = inputs.mnw.lib.wrap pkgs {
             appName = "nvim";
             neovim = pkgs.neovim-unwrapped;
             initLua =
@@ -123,7 +121,7 @@
       # Hotload neovim configs
       devShells = forEachSystem (pkgs: {
         default = pkgs.mkShellNoCC {
-          packages = [ self.packages.${pkgs.system}.default.devMode ];
+          packages = lib.singleton self.packages.${pkgs.system}.default.devMode;
         };
       });
     };
