@@ -16,6 +16,7 @@ let
     ts-comments-nvim
     snacks-nvim
     mini-nvim
+    todo-comments-nvim
     trouble-nvim
 
     # Completions
@@ -30,7 +31,10 @@ let
     markdown-preview-nvim
 
     # Neat
+    bufferline-nvim
+    scope-nvim # For filtering buffers per tab
     lualine-nvim
+    cord-nvim
 
     # Other
     lazydev-nvim

@@ -4,11 +4,7 @@ let
   pkgsPlugins = with pkgs.vimPlugins; [
     # Features
     which-key-nvim
-    bufferline-nvim
-    scope-nvim # For filtering buffers per tab
     yazi-nvim
-    todo-comments-nvim
-    cord-nvim
 
     # Pretty
     helpview-nvim # Very pretty vimdocs
