@@ -47,7 +47,7 @@ g.mapleader = " "
 --- useopen: If included, jump to the first open window in the current tab page that contains the specified buffer (if there is one). Otherwise: Do not examine other windows
 --- usetab: Like "useopen", but also consider windows in other tab pages
 --- newtab: Like "split", but open a new tab page. Overrules "split" when both are present
--- split: split the current window before loading a buffer for a quickfix command that display errors.Otherwise: do not split, use current window (when used in the quickfix window: the previously used window or split if there is no other window)
+-- split: split the current window before loading a buffer for a quickfix command that display errors. Otherwise: do not split, use current window (when used in the quickfix window: the previously used window or split if there is no other window)
 o.switchbuf = "useopen,usetab,newtab"
 
 -- Always show the tab label line
@@ -58,4 +58,4 @@ o.laststatus = 3
 
 -- Save pretty much everything to a session save, needed for auto-session and
 -- scope
-vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions,globals"
+o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions,globals"

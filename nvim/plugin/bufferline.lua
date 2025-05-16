@@ -3,7 +3,7 @@ local scope = require("scope")
 bfl.setup({
   highlights = require("catppuccin.groups.integrations.bufferline").get(),
   options = {
-    mode = "buffers", -- Show only tabpages
+    mode = "buffers", -- Show buffers
     diagnostics = "nvim_lsp",
     color_icons = true,
     numbers = "ordinal",
