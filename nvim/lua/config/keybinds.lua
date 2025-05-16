@@ -68,8 +68,6 @@ function inoremap(key, map, desc)
   mkNoremap("i", key, map, desc)
 end
 
-local Snacks = require("snacks")
-
 --- Some mappings taken from https://github.com/ChUrl/flake-nixinator/blob/0b53813c9487965585d723ed3c5f65440448d1e4/home/modules/neovim/mappings.nix
 
 ------------- Basics
@@ -147,78 +145,3 @@ nnoremap("t!", ":quit!<CR>", "Exist tab")
 for i = 1, 9 do
   nnoremap("t" .. i, i .. "gt")
 end
-
-------------- Plugins
----- Neogit
-map("<leader>gg", ":Neogit<CR>", "Open Neogit")
-
----- Yazi
-nnoremap("<leader>ff", "<cmd>Yazi<cr>", "Open yazi at current file")
-
-noremap("<leader>fg", "<cmd>Yazi cwd<cr>", "Open yazi at working directory")
-
-noremap("<c-up>", "<cmd>Yazi toggle<cr>", "Resume the last yazi session")
-
----- Snacks
--- Top Pickers & Explorer
-nnoremap("<space><space>", function()
-  Snacks.picker.smart()
-end, "Smart find files")
-nnoremap("<leader>fb", function()
-  Snacks.picker.buffers()
-end, "Find buffers")
-nnoremap("<leader>,", function()
-  Snacks.picker.buffers()
-end, "Find buffers")
-nnoremap("<leader>fr", function()
-  Snacks.picker.recent()
-end, "Find recent files")
-nnoremap("<leader>fp", function()
-  Snacks.picker.projects()
-end, "Find projects")
-nnoremap("<leader>fz", function()
-  Snacks.picker.zoxide({})
-end, "Find files with zoxide")
-
-nnoremap("<leader>/", function()
-  Snacks.picker.grep()
-end, "Find with live grep")
-
--- Scratch buffer
-nnoremap("<leader>.", function()
-  Snacks.scratch()
-end, "Toggle scratch buffer")
-nnoremap("<leader>S", function()
-  Snacks.scratch()
-end, "Select scratch buffer")
-
--- Git log
-nnoremap("<leader>gl", function()
-  Snacks.picker.git_log({ layout = "vertical" })
-end, "Git log")
-nnoremap("<leader>gf", function()
-  Snacks.picker.git_log_file({ layout = "vertical" })
-end, "Git log file")
-
--- Tasks
-nnoremap("<leader>tl", function()
-  Snacks.picker.todo_comments()
-end, "List TODO comments")
--- Taken from https://linkarzu.com/posts/neovim/snacks-picker/
-nnoremap("<leader>tt", function()
-  Snacks.picker.grep({
-    show_empty = true,
-    search = "^\\s*- \\[ \\]",
-    -- Enabled so teh pattern is interpreted as a regex
-    regex = true,
-    -- Not needed since we're using a fixed pattern
-    live = false,
-    -- Restrict to current working directory
-    dirs = { vim.fn.getcwd() },
-    -- Include files ignored by .gitignore
-    args = { "--no-ignore" },
-  })
-end, "Search for incomplete tasks")
-
--- Toggles
-Snacks.toggle.option("wrap", { name = "Wrap" }):map("<leader>uw")
