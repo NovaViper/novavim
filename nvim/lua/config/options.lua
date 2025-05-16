@@ -14,6 +14,9 @@ o.mousemoveevent = true -- Enable mouse move events (support for hover actions)
 o.cursorline = true -- Highlight the line that the cursor is on
 o.cursorlineopt = "both"
 
+o.spell = true -- Enable spell check
+o.spelllang = "en_us"
+
 o.hlsearch = true -- Highlight search matches
 o.number = true -- Show number lines
 o.relativenumber = true -- Show the line number relative to the line with the cursor in front of each line
