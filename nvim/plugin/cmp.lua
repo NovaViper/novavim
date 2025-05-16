@@ -61,6 +61,7 @@ cmp.setup({
   cmdline = {
     enabled = true,
     completion = {
+      list = { selection = { preselect = true } },
       menu = { auto_show = true },
     },
   },

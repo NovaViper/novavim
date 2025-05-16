@@ -16,6 +16,7 @@ o.cursorlineopt = "both"
 
 o.hlsearch = true -- Highlight search matches
 o.number = true -- Show number lines
+o.relativenumber = true -- Show the line number relative to the line with the cursor in front of each line
 o.smartcase = true -- Use case-sensitive search if any of the search characters are uppercase
 
 o.autoindent = true -- Copy indention from previous line when starting new line
