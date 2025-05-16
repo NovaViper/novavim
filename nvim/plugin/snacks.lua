@@ -48,7 +48,7 @@ Snacks.setup({
     -- },
   },
   scratch = { enabled = true },
-  scroll = { enabled = true },
+  --scroll = { enabled = true },
   terminal = { enable = true },
   toggle = { enabled = true },
   image = { enabled = true },

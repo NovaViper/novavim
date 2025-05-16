@@ -35,6 +35,7 @@ let
     scope-nvim # For filtering buffers per tab
     lualine-nvim
     cord-nvim
+    stay-centered-nvim
 
     # Other
     lazydev-nvim

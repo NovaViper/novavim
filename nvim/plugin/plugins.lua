@@ -24,3 +24,6 @@ require("nvim-treesitter.configs").setup({
     enable = true,
   },
 })
+
+-- Keep cursor centered to screen
+require("stay-centered").setup()
