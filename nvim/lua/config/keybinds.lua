@@ -81,10 +81,6 @@ noremap("pp", "p`[myv`]=`y")
 vnoremap("<", "<gv")
 vnoremap(">", ">gv")
 
--- Comment/uncomment lines, Neovim 0.10 feature
-nmap("#", "gcc")
-vmap("#", "gcgv")
-
 -- Clear highlights on search when pressing <Esc> in normal mode from kickstart
 nnoremap("<Esc>", "<cmd>nohlsearch<CR>")
 nnoremap("<leader>fN", "<cmd>ene | startinsert<cr>", "Create a new empty file")
