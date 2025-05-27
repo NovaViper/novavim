@@ -2,7 +2,7 @@ return {
   "which-key.nvim",
   after = function()
     local wk = require("which-key")
-    wk.setup({ preset = "helix" })
+    wk.setup({ preset = "helix", delay = 0 })
 
     wk.add({
       {
