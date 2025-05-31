@@ -39,7 +39,7 @@ let
     imagemagick
 
     ghostscript
-    mermaid-cli
+    #mermaid-cli
 
     # yazi
     yazi
