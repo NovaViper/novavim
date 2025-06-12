@@ -46,7 +46,6 @@ let
     catppuccin
 
     # git setup
-    neogit
     plenary-nvim
     diffview-nvim
 
