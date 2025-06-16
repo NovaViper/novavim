@@ -18,6 +18,7 @@ let
     mini-nvim
     todo-comments-nvim
     trouble-nvim
+    orgmode
 
     # Completions
     blink-cmp
