@@ -30,6 +30,7 @@ let
     just-lsp
     # Markdown
     marksman
+    python3Packages.pylatexenc
 
     # checkers spell
     hunspell
