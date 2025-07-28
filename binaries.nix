@@ -19,7 +19,6 @@ let
     # sh
     shfmt
     shellcheck
-    bashdb
     nodePackages.bash-language-server
     #fish
     fish-lsp
