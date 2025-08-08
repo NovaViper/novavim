@@ -38,28 +38,28 @@
       # We comment this out for now, because `packagesFromDirectoryRecursive` will
       # error if the folder is empty.
       neovimStartPlugins = forEachSystem (
-        pkgs: { }
-        # (lib.packagesFromDirectoryRecursive {
-        #   inherit (pkgs) callPackage;
-        #   directory = ./other/startPlugins;
-        # })
+        pkgs:
+        lib.packagesFromDirectoryRecursive {
+          inherit (pkgs) callPackage;
+          directory = ./other/startPlugins;
+        }
       );
 
       # See above!
       neovimOptPlugins = forEachSystem (
         pkgs: { }
-        # (lib.packagesFromDirectoryRecursive {
+        # lib.packagesFromDirectoryRecursive {
         #   inherit (pkgs) callPackage;
         #   directory = ./other/optPlugins;
-        # })
+        # }
       );
 
       neovimBinaries = forEachSystem (
         pkgs: { }
-        # (lib.packagesFromDirectoryRecursive {
+        # lib.packagesFromDirectoryRecursive {
         #   inherit (pkgs) callPackage;
         #   directory = ./other/binaries;
-        # })
+        # }
       );
 
       packages = forEachSystem (
