@@ -18,7 +18,7 @@ let
     mini-nvim
     todo-comments-nvim
     trouble-nvim
-    orgmode
+    orgmode # TODO: Remove later
 
     # Completions
     blink-cmp
@@ -32,8 +32,7 @@ let
     markdown-preview-nvim
 
     # Neat
-    bufferline-nvim
-    scope-nvim # For filtering buffers per tab
+    barbar-nvim
     lualine-nvim
     cord-nvim
     stay-centered-nvim
@@ -50,7 +49,7 @@ let
     plenary-nvim
     diffview-nvim
 
-    nvim-web-devicons # For bufferline
+    nvim-web-devicons # Fancy icons
   ];
 in
 pkgsPlugins ++ extraPlugins

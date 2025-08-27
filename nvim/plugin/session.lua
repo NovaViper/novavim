@@ -30,9 +30,12 @@ session.setup({
   -- Only create a new session if you're at the root of a git repo
   auto_create = at_repo_root,
 
-  -- Use Scope's commands
-  pre_save_cmds = { "lua vim.cmd([[ScopeSaveState]])" },
-  post_restore_cmds = { "lua vim.cmd([[ScopeLoadState]])" },
+  -- Integration with barbar
+  pre_save_cmds = {
+    function()
+      vim.api.nvim_exec_autocmds("User", { pattern = "SessionSavePre" })
+    end,
+  },
 
   -- If you're in a subdirectory of a git repo, and neovim wasn't called with a
   -- specific file to be opened, activate the session for the repo's root.
