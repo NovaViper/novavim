@@ -30,6 +30,7 @@ let
     gitsigns-nvim
     render-markdown-nvim
     markdown-preview-nvim
+    vim-tpipeline # Tmux
 
     # Neat
     barbar-nvim
