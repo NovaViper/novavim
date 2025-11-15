@@ -11,7 +11,6 @@ let
   ];
 
   # Check https://github.com/NixNeovim/NixNeovimPlugins/blob/main/plugins.md
-  extraPlugins = with neovimPlugins.packages.${pkgs.system}; [
-  ];
+  extraPlugins = with neovimPlugins.packages.${pkgs.stdenv.hostPlatform.system}; [ ];
 in
 pkgsPlugins ++ extraPlugins
