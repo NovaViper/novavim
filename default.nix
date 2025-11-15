@@ -8,12 +8,12 @@ let
   # Lists of derivations that we grab from external sources (nixpkgs and
   # neovimPlugins)
   # Check https://github.com/NixNeovim/NixNeovimPlugins/blob/main/plugins.md for updates
-  startPlugins = import ./startPlugins.nix { inherit pkgs neovimPlugins; };
-  optPlugins = import ./optPlugins.nix { inherit pkgs neovimPlugins; };
-  binaries = import ./binaries.nix { inherit pkgs; };
+  startPlugins = import ./nix/startPlugins.nix { inherit pkgs neovimPlugins; };
+  optPlugins = import ./nix/optPlugins.nix { inherit pkgs neovimPlugins; };
+  binaries = import ./nix/binaries.nix { inherit pkgs; };
 
   customStartPlugins = {
-    gpg-nvim = callPackage ./other/startPlugins/gpg-nvim.nix { };
+    gpg-nvim = callPackage ./nix/startPlugins/gpg-nvim.nix { };
   };
   customOptPlugins = { };
   customBinaries = { };
