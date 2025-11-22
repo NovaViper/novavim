@@ -2,10 +2,6 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     mnw.url = "github:Gerg-L/mnw";
-    neovimPlugins = {
-      url = "github:NixNeovim/NixNeovimPlugins";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
@@ -13,7 +9,6 @@
       self,
       nixpkgs,
       mnw,
-      neovimPlugins,
     }:
     let
       inherit (nixpkgs) lib;
@@ -23,7 +18,7 @@
     in
     {
       packages = forAllSystems (pkgs: {
-        default = import ./default.nix { inherit pkgs mnw neovimPlugins; };
+        default = import ./default.nix { inherit pkgs mnw; };
       });
 
       devShells = forAllSystems (pkgs: {

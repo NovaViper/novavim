@@ -1,9 +1,9 @@
-{
-  pkgs,
-  neovimPlugins,
-}:
+{ pkgs }:
 let
   pkgsPlugins = with pkgs.vimPlugins; [
+    # Theme
+    catppuccin-nvim
+
     # Basic essentials
     nvim-treesitter.withAllGrammars
     nvim-lspconfig
@@ -32,6 +32,10 @@ let
     markdown-preview-nvim
     vim-tpipeline # Tmux
 
+    # git setup
+    plenary-nvim
+    diffview-nvim
+
     # Neat
     barbar-nvim
     lualine-nvim
@@ -40,17 +44,7 @@ let
 
     # Other
     lazydev-nvim
-  ];
-
-  # Check https://github.com/NixNeovim/NixNeovimPlugins/blob/main/plugins.md
-  extraPlugins = with neovimPlugins.packages.${pkgs.stdenv.hostPlatform.system}; [
-    catppuccin
-
-    # git setup
-    plenary-nvim
-    diffview-nvim
-
     nvim-web-devicons # Fancy icons
   ];
 in
-pkgsPlugins ++ extraPlugins
+pkgsPlugins

@@ -1,4 +1,4 @@
-{ pkgs, neovimPlugins }:
+{ pkgs }:
 
 let
   pkgsPlugins = with pkgs.vimPlugins; [
@@ -9,8 +9,5 @@ let
     # Pretty
     helpview-nvim # Very pretty vimdocs
   ];
-
-  # Check https://github.com/NixNeovim/NixNeovimPlugins/blob/main/plugins.md
-  extraPlugins = with neovimPlugins.packages.${pkgs.stdenv.hostPlatform.system}; [ ];
 in
-pkgsPlugins ++ extraPlugins
+pkgsPlugins

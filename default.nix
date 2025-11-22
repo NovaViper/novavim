@@ -1,15 +1,11 @@
 {
   pkgs,
   mnw,
-  neovimPlugins,
 }:
 let
   inherit (pkgs) callPackage;
-  # Lists of derivations that we grab from external sources (nixpkgs and
-  # neovimPlugins)
-  # Check https://github.com/NixNeovim/NixNeovimPlugins/blob/main/plugins.md for updates
-  startPlugins = import ./nix/startPlugins.nix { inherit pkgs neovimPlugins; };
-  optPlugins = import ./nix/optPlugins.nix { inherit pkgs neovimPlugins; };
+  startPlugins = import ./nix/startPlugins.nix { inherit pkgs; };
+  optPlugins = import ./nix/optPlugins.nix { inherit pkgs; };
   binaries = import ./nix/binaries.nix { inherit pkgs; };
 
   customStartPlugins = {
