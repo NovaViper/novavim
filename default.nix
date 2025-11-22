@@ -10,6 +10,7 @@ let
 
   customStartPlugins = {
     gpg-nvim = callPackage ./nix/startPlugins/gpg-nvim.nix { };
+    catppuccin = callPackage ./nix/startPlugins/catppuccin.nix { };
   };
   customOptPlugins = { };
   customBinaries = { };

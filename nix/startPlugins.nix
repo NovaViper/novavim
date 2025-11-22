@@ -1,9 +1,6 @@
 { pkgs }:
 let
   pkgsPlugins = with pkgs.vimPlugins; [
-    # Theme
-    catppuccin-nvim
-
     # Basic essentials
     nvim-treesitter.withAllGrammars
     nvim-lspconfig
