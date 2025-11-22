@@ -1,7 +1,9 @@
 { pkgs }:
-
 let
-  pkgsPlugins = with pkgs.vimPlugins; [
+  inherit (pkgs) callPackage vimPlugins;
+
+  # Plugins from nixpkgs
+  fromNixpkgs = with vimPlugins; [
     # Features
     which-key-nvim
     yazi-nvim
@@ -9,5 +11,8 @@ let
     # Pretty
     helpview-nvim # Very pretty vimdocs
   ];
+
+  # Plugins not available on nixpkgs
+  customPlugins = { };
 in
-pkgsPlugins
+fromNixpkgs ++ (builtins.attrValues customPlugins)

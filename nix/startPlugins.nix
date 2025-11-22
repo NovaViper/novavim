@@ -1,6 +1,9 @@
 { pkgs }:
 let
-  pkgsPlugins = with pkgs.vimPlugins; [
+  inherit (pkgs) callPackage vimPlugins;
+
+  # Plugins from nixpkgs
+  fromNixpkgs = with vimPlugins; [
     # Basic essentials
     nvim-treesitter.withAllGrammars
     nvim-lspconfig
@@ -43,5 +46,11 @@ let
     lazydev-nvim
     nvim-web-devicons # Fancy icons
   ];
+
+  # Plugins not available on nixpkgs
+  customPlugins = {
+    gpg-nvim = callPackage ./startPlugins/gpg-nvim.nix { };
+    catppuccin = callPackage ./startPlugins/catppuccin.nix { };
+  };
 in
-pkgsPlugins
+fromNixpkgs ++ (builtins.attrValues customPlugins)
