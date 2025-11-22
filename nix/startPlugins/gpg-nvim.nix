@@ -1,5 +1,5 @@
-{ vimUtils, fetchFromGitHub, ... }:
-vimUtils.buildVimPlugin {
+{ fetchFromGitHub }:
+{
   name = "gpg-nvim";
   version = "2025-10-30";
 
