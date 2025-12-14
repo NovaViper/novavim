@@ -1,5 +1,17 @@
 { pkgs }:
 let
+  myPythonPackages =
+    ps: with ps; [
+      debugpy
+      pyflakes
+      isort
+      pytest
+      black
+      pip
+      pipx
+      pyinstaller
+    ];
+
   packages = with pkgs; [
     # Base Dependencies
     binutils
@@ -13,7 +25,12 @@ let
     yaml-language-server
     ## Nix
     nixd
+    nixfmt-rfc-style
     nil
+    ## Python
+    (python3.withPackages myPythonPackages)
+    pyright
+    pipenv
     ## Lua
     stylua
     # sh
