@@ -4,6 +4,9 @@ let
 
   # Plugins from nixpkgs
   fromNixpkgs = with vimPlugins; [
+    # Theme
+    catppuccin-nvim
+
     # Basic essentials
     nvim-treesitter.withAllGrammars
     nvim-lspconfig
@@ -50,7 +53,6 @@ let
   # Plugins not available on nixpkgs
   customPlugins = {
     gpg-nvim = callPackage ./startPlugins/gpg-nvim.nix { };
-    catppuccin = callPackage ./startPlugins/catppuccin.nix { };
   };
 in
 fromNixpkgs ++ (builtins.attrValues customPlugins)
