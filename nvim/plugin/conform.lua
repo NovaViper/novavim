@@ -1,4 +1,6 @@
-require("conform").setup({
+conform = require("conform")
+
+conform.setup({
   formatters_by_ft = {
     nix = { "nixfmt" },
     lua = { "stylua" },
@@ -21,7 +23,9 @@ require("conform").setup({
     },
   },
 
-  format_on_save = function(bufnr)
+  format_on_save = nil,
+
+  format_after_save = function(bufnr)
     -- Be sure to use `vim.b`, not anything else like `vim.o`
     if vim.b[bufnr].disable_autoformat then
       return nil
@@ -37,7 +41,7 @@ require("conform").setup({
 
     -- Calls conform.format(). We put our options in default_format_opts
     -- above, so they're applied when calling :fmt too
-    return {}
+    return { async = true }
   end,
 })
 
@@ -53,7 +57,7 @@ vim.api.nvim_create_user_command("Fmt", function(args)
     }
   end
 
-  require("conform").format({ range = range })
+  conform.format({ range = range, async = true })
 end, { range = true })
 
 -- Called when auto-format is disabled for a language or folder,
