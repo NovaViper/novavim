@@ -15,6 +15,12 @@ require("conform").setup({
     html = { "prettierd", "prettier", stop_after_first = true },
   },
 
+  formatters = {
+    stylua = {
+      prepend_args = { "--indent-type", "Spaces", "--indent-width", "2" },
+    },
+  },
+
   format_on_save = function(bufnr)
     -- Be sure to use `vim.b`, not anything else like `vim.o`
     if vim.b[bufnr].disable_autoformat then
