@@ -17,6 +17,7 @@ let
     binutils
     (ripgrep.override { withPCRE2 = true; })
     gnutls
+    gcc
 
     # LSP tools
     semgrep
