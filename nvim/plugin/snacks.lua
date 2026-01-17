@@ -94,13 +94,25 @@ nnoremap("<leader>S", function()
   Snacks.scratch()
 end, "Select scratch buffer")
 
--- Git log
+-- Git
+nnoremap("<leader>gb", function()
+  Snacks.picker.git_branches()
+end, "Git branches")
 nnoremap("<leader>gl", function()
   Snacks.picker.git_log({ layout = "vertical" })
 end, "Git log")
 nnoremap("<leader>gf", function()
   Snacks.picker.git_log_file({ layout = "vertical" })
 end, "Git log file")
+nnoremap("<leader>gs", function()
+  Snacks.picker.git_status()
+end, "Git status")
+nnoremap("<leader>gS", function()
+  Snacks.picker.git_stash()
+end, "Git stash")
+nnoremap("<leader>gd", function()
+  Snacks.picker.git_diff()
+end, "Git diff")
 
 -- Tasks
 nnoremap("<leader>tl", function()
