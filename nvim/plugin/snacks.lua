@@ -19,9 +19,7 @@ Snacks.setup({
         icon = " ",
         title = "Git Status",
         section = "terminal",
-        enabled = function()
-          return Snacks.git.get_root() ~= nil
-        end,
+        enabled = function() return Snacks.git.get_root() ~= nil end,
         cmd = "git status --short --branch --renames",
         height = 5,
         padding = 1,
@@ -60,64 +58,30 @@ vim.g.snacks_animate = true
 
 --- Keybinds
 -- Top Pickers & Explorer
-nnoremap("<space><space>", function()
-  Snacks.picker.smart()
-end, "Smart find files")
-nnoremap("<leader>fb", function()
-  Snacks.picker.buffers()
-end, "Find buffers")
-nnoremap("<leader>,", function()
-  Snacks.picker.buffers()
-end, "Find buffers")
-nnoremap("<leader>fr", function()
-  Snacks.picker.recent()
-end, "Find recent files")
-nnoremap("<leader>fp", function()
-  Snacks.picker.projects()
-end, "Find projects")
-nnoremap("<leader>fz", function()
-  Snacks.picker.zoxide()
-end, "Find files with zoxide")
-nnoremap("<leader>z", function()
-  Snacks.picker.spelling()
-end, "Spell Checker")
+nnoremap("<space><space>", function() Snacks.picker.smart() end, "Smart find files")
+nnoremap("<leader>fb", function() Snacks.picker.buffers() end, "Find buffers")
+nnoremap("<leader>,", function() Snacks.picker.buffers() end, "Find buffers")
+nnoremap("<leader>fr", function() Snacks.picker.recent() end, "Find recent files")
+nnoremap("<leader>fp", function() Snacks.picker.projects() end, "Find projects")
+nnoremap("<leader>fz", function() Snacks.picker.zoxide() end, "Find files with zoxide")
+nnoremap("<leader>z", function() Snacks.picker.spelling() end, "Spell Checker")
 
-nnoremap("<leader>/", function()
-  Snacks.picker.grep()
-end, "Find with live grep")
+nnoremap("<leader>/", function() Snacks.picker.grep() end, "Find with live grep")
 
 -- Scratch buffer
-nnoremap("<leader>.", function()
-  Snacks.scratch()
-end, "Toggle scratch buffer")
-nnoremap("<leader>S", function()
-  Snacks.scratch()
-end, "Select scratch buffer")
+nnoremap("<leader>.", function() Snacks.scratch() end, "Toggle scratch buffer")
+nnoremap("<leader>S", function() Snacks.scratch() end, "Select scratch buffer")
 
 -- Git
-nnoremap("<leader>gb", function()
-  Snacks.picker.git_branches()
-end, "Git branches")
-nnoremap("<leader>gl", function()
-  Snacks.picker.git_log({ layout = "vertical" })
-end, "Git log")
-nnoremap("<leader>gf", function()
-  Snacks.picker.git_log_file({ layout = "vertical" })
-end, "Git log file")
-nnoremap("<leader>gs", function()
-  Snacks.picker.git_status()
-end, "Git status")
-nnoremap("<leader>gS", function()
-  Snacks.picker.git_stash()
-end, "Git stash")
-nnoremap("<leader>gd", function()
-  Snacks.picker.git_diff()
-end, "Git diff")
+nnoremap("<leader>gb", function() Snacks.picker.git_branches() end, "Git branches")
+nnoremap("<leader>gl", function() Snacks.picker.git_log({ layout = "vertical" }) end, "Git log")
+nnoremap("<leader>gf", function() Snacks.picker.git_log_file({ layout = "vertical" }) end, "Git log file")
+nnoremap("<leader>gs", function() Snacks.picker.git_status() end, "Git status")
+nnoremap("<leader>gS", function() Snacks.picker.git_stash() end, "Git stash")
+nnoremap("<leader>gd", function() Snacks.picker.git_diff() end, "Git diff")
 
 -- Tasks
-nnoremap("<leader>tl", function()
-  Snacks.picker.todo_comments()
-end, "List TODO comments")
+nnoremap("<leader>tl", function() Snacks.picker.todo_comments() end, "List TODO comments")
 -- Taken from https://linkarzu.com/posts/neovim/snacks-picker/
 nnoremap("<leader>tt", function()
   Snacks.picker.grep({

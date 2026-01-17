@@ -14,9 +14,7 @@ function get_repo_root()
   return vim.fn.trim(output)
 end
 
-function at_repo_root()
-  return get_repo_root() == vim.uv.cwd()
-end
+function at_repo_root() return get_repo_root() == vim.uv.cwd() end
 
 -- Is true when Neovim is called with no arguments or a folder argument. Helps
 -- to ensure that sessions don't get improperly loaded when we should just be
@@ -32,9 +30,7 @@ session.setup({
 
   -- Integration with barbar
   pre_save_cmds = {
-    function()
-      vim.api.nvim_exec_autocmds("User", { pattern = "SessionSavePre" })
-    end,
+    function() vim.api.nvim_exec_autocmds("User", { pattern = "SessionSavePre" }) end,
   },
 
   -- If you're in a subdirectory of a git repo, and neovim wasn't called with a

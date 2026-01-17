@@ -19,54 +19,34 @@ local function mkNoremap(mode, key, map, desc)
 end
 
 -- Create recursive "root" keymap that applies to "normal", "visual+select", and "operator-pending" modes
-function map(key, map, desc)
-  mkRemap("", key, map, desc)
-end
+function map(key, map, desc) mkRemap("", key, map, desc) end
 
 -- Create a non-recursive "root" keymap that applies to "normal", "visual+select", and "operator-pending" modes
-function noremap(key, map, desc)
-  mkNoremap("", key, map, desc)
-end
+function noremap(key, map, desc) mkNoremap("", key, map, desc) end
 
 -- Create recursive "root" keymap that applies to any given mode(s)
-function mapany(modes, key, map, desc)
-  mkRemap(modes, key, map, desc)
-end
+function mapany(modes, key, map, desc) mkRemap(modes, key, map, desc) end
 
 -- Create a non-recursive "root" keymap that applies to given mode(s)
-function noremapany(modes, key, map, desc)
-  mkNoremap(modes, key, map, desc)
-end
+function noremapany(modes, key, map, desc) mkNoremap(modes, key, map, desc) end
 
 -- Create a recursive keymap that only applies to normal mode
-function nmap(key, map, desc)
-  mkRemap("n", key, map, desc)
-end
+function nmap(key, map, desc) mkRemap("n", key, map, desc) end
 
 -- Create a recursive keymap that only applies to visual+select modes
-function vmap(key, map, desc)
-  mkRemap("v", key, map, desc)
-end
+function vmap(key, map, desc) mkRemap("v", key, map, desc) end
 
 -- Create a recursive keymap that only applies to insert mode
-function imap(key, map, desc)
-  mkRemap("i", key, map, desc)
-end
+function imap(key, map, desc) mkRemap("i", key, map, desc) end
 
 -- Create a non-recursive keymap that only applies to normal mode
-function nnoremap(key, map, desc)
-  mkNoremap("n", key, map, desc)
-end
+function nnoremap(key, map, desc) mkNoremap("n", key, map, desc) end
 
 -- Create a non-recursive keymap that only applies to visual+select modes
-function vnoremap(key, map, desc)
-  mkNoremap("v", key, map, desc)
-end
+function vnoremap(key, map, desc) mkNoremap("v", key, map, desc) end
 
 -- Create a non-recursive keymap that only applies to insert mode
-function inoremap(key, map, desc)
-  mkNoremap("i", key, map, desc)
-end
+function inoremap(key, map, desc) mkNoremap("i", key, map, desc) end
 
 --- Some mappings taken from https://github.com/ChUrl/flake-nixinator/blob/0b53813c9487965585d723ed3c5f65440448d1e4/home/modules/neovim/mappings.nix
 
@@ -84,12 +64,8 @@ vnoremap(">", ">gv")
 -- Clear highlights on search when pressing <Esc> in normal mode from kickstart
 nnoremap("<Esc>", "<cmd>nohlsearch<CR>")
 nnoremap("<leader>fN", "<cmd>ene | startinsert<cr>", "Create a new empty file")
-nnoremap("<leader>bk", function()
-  Snacks.bufdelete()
-end, "Kill buffer")
-nnoremap("<leader>bK", function()
-  Snacks.bufdelete.other()
-end, "Kill all but current buffers")
+nnoremap("<leader>bk", function() Snacks.bufdelete() end, "Kill buffer")
+nnoremap("<leader>bK", function() Snacks.bufdelete.other() end, "Kill all but current buffers")
 
 -- Force close window keybinding
 nnoremap("<leader>wd", "<cmd>close<cr>", "Delete window")

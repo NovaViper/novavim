@@ -17,9 +17,7 @@ vim.api.nvim_create_autocmd("LspProgress", {
   callback = function(ev)
     local client = vim.lsp.get_client_by_id(ev.data.client_id)
     local value = ev.data.params.value --[[@as {percentage?: number, title?: string, message?: string, kind: "begin" | "report" | "end"}]]
-    if not client or type(value) ~= "table" then
-      return
-    end
+    if not client or type(value) ~= "table" then return end
     local p = progress[client.id]
 
     for i = 1, #p + 1 do
@@ -38,9 +36,7 @@ vim.api.nvim_create_autocmd("LspProgress", {
     end
 
     local msg = {} ---@type string[]
-    progress[client.id] = vim.tbl_filter(function(v)
-      return table.insert(msg, v.msg) or not v.done
-    end, p)
+    progress[client.id] = vim.tbl_filter(function(v) return table.insert(msg, v.msg) or not v.done end, p)
 
     local spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
     vim.notify(table.concat(msg, "\n"), "info", {
@@ -65,17 +61,11 @@ end, "Open diagnostics")
 -- in visual mode
 noremap("<leader>la", vim.lsp.buf.code_action, "Run code action")
 -- i for implementation
-noremap("<leader>li", function()
-  Snacks.picker.lsp_definitions()
-end, "Show code definitions")
+noremap("<leader>li", function() Snacks.picker.lsp_definitions() end, "Show code definitions")
 -- u for usage
-noremap("<leader>lu", function()
-  Snacks.picker.lsp_references()
-end, "Show code usage")
+noremap("<leader>lu", function() Snacks.picker.lsp_references() end, "Show code usage")
 -- w for workspace (show diagnostics for all files)
-noremap("<leader>lw", function()
-  Snacks.picker.diagnostics()
-end, "Show diagnostics from entire workspace")
+noremap("<leader>lw", function() Snacks.picker.diagnostics() end, "Show diagnostics from entire workspace")
 
 -- Open trouble
 mapany({ "n", "i" }, "<leader>lt", "<cmd>Trouble diagnostics toggle<cr>", "Open trouble")

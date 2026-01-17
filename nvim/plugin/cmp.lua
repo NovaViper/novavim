@@ -33,9 +33,7 @@ cmp.setup({
           label = {
             -- Removes label_details from being added to label by default
             -- See https://github.com/Saghen/blink.cmp/issues/843
-            text = function(ctx)
-              return ctx.label
-            end,
+            text = function(ctx) return ctx.label end,
           },
         },
       },
