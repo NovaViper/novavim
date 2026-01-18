@@ -26,7 +26,7 @@ let
     yaml-language-server
     ## Nix
     nixd
-    nixfmt-rfc-style
+    nixfmt
     nil
     ## Python
     (python3.withPackages myPythonPackages)
