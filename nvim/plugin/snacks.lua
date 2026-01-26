@@ -1,5 +1,6 @@
 Snacks = require("snacks")
 
+-- Snacks setup
 Snacks.setup({
   dashboard = {
     sections = {
@@ -56,47 +57,98 @@ Snacks.setup({
 -- Enable animations
 vim.g.snacks_animate = true
 
+--------
+-- Helper for standard Snacks.picker mappings
+local function map_picker(key, fn_name, desc, opts)
+  nnoremap(key, function()
+    if opts then
+      Snacks.picker[fn_name](opts)
+    else
+      Snacks.picker[fn_name]()
+    end
+  end, desc)
+end
+
+-- Helper for arbitrary functions
+local function map_fn(key, fn, desc, opts)
+  nnoremap(key, function()
+    if opts then
+      fn(opts)
+    else
+      fn()
+    end
+  end, desc)
+end
+
+-- Detect if key is a special <> key
+local function is_special_key(key) return key:match("^<.+>$") end
+--------
+
 --- Keybinds
--- Top Pickers & Explorer
-nnoremap("<space><space>", function() Snacks.picker.smart() end, "Smart find files")
-nnoremap("<leader>fb", function() Snacks.picker.buffers() end, "Find buffers")
-nnoremap("<leader>,", function() Snacks.picker.buffers() end, "Find buffers")
-nnoremap("<leader>fr", function() Snacks.picker.recent() end, "Find recent files")
-nnoremap("<leader>fp", function() Snacks.picker.projects() end, "Find projects")
-nnoremap("<leader>fz", function() Snacks.picker.zoxide() end, "Find files with zoxide")
-nnoremap("<leader>z", function() Snacks.picker.spelling() end, "Spell Checker")
+local leader = "<leader>"
 
-nnoremap("<leader>/", function() Snacks.picker.grep() end, "Find with live grep")
+-- Table of all picker mappings
+local picker_mappings = {
+  -- Top Pickers & Explorer
+  ["<space><space>"] = { "smart", "Smart find files" },
+  ["fb"] = { "buffers", "Find buffers" },
+  [","] = { "buffers", "Find buffers" },
+  ["fr"] = { "recent", "Find recent files" },
+  ["fp"] = { "projects", "Find projects" },
+  ["fz"] = { "zoxide", "Find files with zoxide" },
+  ["z"] = { "spelling", "Spell Checker" },
+  ["/"] = { "grep", "Find with live grep" },
+  ["="] = { "pick", "Start new picker" },
+  ["-"] = { "resume", "Resume previous picker" },
 
--- Scratch buffer
-nnoremap("<leader>.", function() Snacks.scratch() end, "Toggle scratch buffer")
-nnoremap("<leader>S", function() Snacks.scratch() end, "Select scratch buffer")
+  -- Git
+  ["gb"] = { "git_branches", "Git branches" },
+  ["gl"] = { "git_log", "Git log", { layout = "vertical" } },
+  ["gL"] = { "git_log_line", "Git log line", { layout = "vertical" } },
+  ["gf"] = { "git_log_file", "Git log file", { layout = "vertical" } },
+  ["gs"] = { "git_status", "Git status", { layout = "vertical" } },
+  ["gS"] = { "git_stash", "Git stash", { layout = "vertical" } },
+  ["gd"] = { "git_diff", "Git diff (hunks)", { layout = "vertical" } },
 
--- Git
-nnoremap("<leader>gb", function() Snacks.picker.git_branches() end, "Git branches")
-nnoremap("<leader>gl", function() Snacks.picker.git_log({ layout = "vertical" }) end, "Git log")
-nnoremap("<leader>gf", function() Snacks.picker.git_log_file({ layout = "vertical" }) end, "Git log file")
-nnoremap("<leader>gs", function() Snacks.picker.git_status() end, "Git status")
-nnoremap("<leader>gS", function() Snacks.picker.git_stash() end, "Git stash")
-nnoremap("<leader>gd", function() Snacks.picker.git_diff() end, "Git diff")
+  -- Tasks
+  ["tl"] = { "todo_comments", "List TODO comments" },
+}
 
--- Tasks
-nnoremap("<leader>tl", function() Snacks.picker.todo_comments() end, "List TODO comments")
--- Taken from https://linkarzu.com/posts/neovim/snacks-picker/
-nnoremap("<leader>tt", function()
-  Snacks.picker.grep({
-    show_empty = true,
-    search = "^\\s*- \\[ \\]",
-    -- Enabled so teh pattern is interpreted as a regex
-    regex = true,
-    -- Not needed since we're using a fixed pattern
-    live = false,
-    -- Restrict to current working directory
-    dirs = { vim.fn.getcwd() },
-    -- Include files ignored by .gitignore
-    args = { "--no-ignore" },
-  })
-end, "Search for incomplete tasks")
+-- Table for other Snacks mappings
+local fn_mappings = {
+  ["."] = { Snacks.scratch, "Toggle scratch buffer" },
+  ["S"] = { Snacks.scratch, "Select scratch buffer" },
+  -- Taken from https://linkarzu.com/posts/neovim/snacks-picker/
+  ["tt"] = {
+    function()
+      Snacks.picker.grep({
+        show_empty = true,
+        search = "^\\s*- \\[ \\]",
+        -- Enabled so the pattern is interpreted as a regex
+        regex = true,
+        -- Not needed since we're using a fixed pattern
+        live = false,
+        -- Restrict to current working directory
+        dirs = { vim.fn.getcwd() },
+        -- Include files ignored by .gitignore
+        args = { "--no-ignore" },
+      })
+    end,
+    "Search for incomplete tasks",
+  },
+}
 
 -- Toggles
-Snacks.toggle.option("wrap", { name = "Wrap" }):map("<leader>uw")
+Snacks.toggle.option("wrap", { name = "Wrap" }):map(leader .. "uw")
+
+-- Apply the mappings with leader prefix
+for key_suffix, info in pairs(picker_mappings) do
+  local key = is_special_key(key_suffix) and key_suffix or leader .. key_suffix
+  map_picker(key, info[1], info[2], info[3])
+end
+
+-- Apply all other mappings
+for key_suffix, info in pairs(fn_mappings) do
+  local key = is_special_key(key_suffix) and key_suffix or leader .. key_suffix
+  map_fn(key, info[1], info[2], info[3])
+end
