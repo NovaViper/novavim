@@ -6,7 +6,7 @@ conform.setup({
     lua = { "stylua" },
     sh = { "shfmt" },
     fish = { "fish_indent" },
-    python = { "isort", "black" },
+    python = { "ruff_fix", "ruff_organize_imports", "ruff_format" },
     markdown = { "prettierd", "prettier", stop_after_first = true },
     rust = { "rustfmt", lsp_format = "fallback" },
     jsonc = { "prettierd", "prettier", stop_after_first = true },

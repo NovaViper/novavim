@@ -4,11 +4,7 @@ let
     ps: with ps; [
       debugpy
       pyflakes
-      isort
       pytest
-      black
-      pip
-      pipx
       pyinstaller
     ];
 
@@ -18,6 +14,8 @@ let
     (ripgrep.override { withPCRE2 = true; })
     gnutls
     gcc
+    curl
+    file
 
     # LSP tools
     semgrep
@@ -30,8 +28,9 @@ let
     nil
     ## Python
     (python3.withPackages myPythonPackages)
-    pyright
-    pipenv
+    basedpyright
+    ruff
+    uv
     ## Lua
     stylua
     # sh

@@ -17,7 +17,7 @@ vim.lsp.enable({
   "lua_ls",
   "marksman",
   "nixd",
-  "pyright",
+  "basedpyright",
   "rust_analyzer",
   "yamlls",
 })
