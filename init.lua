@@ -4,7 +4,7 @@
 --vim.opt.rtp:append("~/Documents/Repos/snacks.nvim")
 --require("snacks.profiler").startup()
 
-require("config")
+require("init")
 require("lz.n").load("lazy")
 
 -- Add to this whenever you add a new server to the `lsp` folder!

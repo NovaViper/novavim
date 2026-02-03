@@ -1,6 +1,0 @@
-require("config.options")
-require("config.keybinds")
-require("config.colorscheme")
-require("config.abbrev")
-require("config.lsp")
-require("config.suspend")
