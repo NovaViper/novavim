@@ -33,8 +33,6 @@ let
     rainbow-delimiters-nvim
     indent-blankline-nvim
     gitsigns-nvim
-    render-markdown-nvim
-    markdown-preview-nvim
     vim-tpipeline # Tmux
 
     # git setup

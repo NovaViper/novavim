@@ -10,6 +10,7 @@ let
 
     # Pretty
     helpview-nvim # Very pretty vimdocs
+    render-markdown-nvim
   ];
 
   # Plugins not available on nixpkgs
