@@ -48,6 +48,12 @@ function vnoremap(key, map, desc) mkNoremap("v", key, map, desc) end
 -- Create a non-recursive keymap that only applies to insert mode
 function inoremap(key, map, desc) mkNoremap("i", key, map, desc) end
 
+-- Smart abbreviations
+cabbrev = function(alias, expanded)
+  local command = string.format("<c-r>=((getcmdtype()==':' && getcmdpos()==1) ? '%s' : '%s')<CR>", expanded, alias)
+  vim.cmd.cnoreabbrev(alias, command)
+end
+
 --- Some mappings taken from https://github.com/ChUrl/flake-nixinator/blob/0b53813c9487965585d723ed3c5f65440448d1e4/home/modules/neovim/mappings.nix
 
 ------------- Basics
@@ -117,3 +123,10 @@ nnoremap("t!", ":quit!<CR>", "Exist tab")
 for i = 1, 9 do
   nnoremap("t" .. i, i .. "gt")
 end
+
+-- Abbreviations
+cabbrev("d", "close")
+cabbrev("wd", "w | close")
+cabbrev("q", "qa")
+cabbrev("wq", "wqa")
+cabbrev("src", "source")
