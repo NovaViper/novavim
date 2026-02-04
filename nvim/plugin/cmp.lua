@@ -42,7 +42,7 @@ cmp.setup({
     },
   },
   sources = {
-    default = { "lsp", "path", "snippets", "buffer", "lazydev" },
+    default = { "lsp", "path", "snippets", "buffer", "lazydev", "copilot" },
     -- Loading lazydev through blink leads to better signature help and overall
     -- a better experience
     providers = {
@@ -58,6 +58,11 @@ cmp.setup({
         module = "lazydev.integrations.blink",
         -- make lazydev completions top priority (see `:h blink.cmp`)
         score_offset = 100,
+      },
+      copilot = {
+        name = "Copilot",
+        module = "blink-copilot",
+        -- score_offset = 90,
       },
     },
   },

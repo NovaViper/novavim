@@ -4,6 +4,7 @@ return {
     o.wrap = true
 
     require("render-markdown").setup({
+      file_types = { "markdown", "codecompanion" },
       completions = { lsp = { enabled = true }, blink = { enabled = true } },
 
       render_modes = true,

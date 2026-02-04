@@ -14,6 +14,9 @@ let
     (ripgrep.override { withPCRE2 = true; })
     gnutls
     gcc
+
+    # copilot
+    lua54Packages.tiktoken_core
     curl
     file
 
@@ -22,6 +25,8 @@ let
     tree-sitter
     nodePackages.vscode-langservers-extracted
     yaml-language-server
+    ## Copilot
+    nodejs-slim_latest
     ## Nix
     nixd
     nixfmt
