@@ -14,6 +14,7 @@ let
     (ripgrep.override { withPCRE2 = true; })
     gnutls
     gcc
+    fd
 
     # copilot
     lua54Packages.tiktoken_core

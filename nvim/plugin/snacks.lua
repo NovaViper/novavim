@@ -100,6 +100,8 @@ local picker_mappings = {
   ["/"] = { "grep", "Find with live grep" },
   ["="] = { "pick", "Start new picker" },
   ["-"] = { "resume", "Resume previous picker" },
+  ["n"] = { "notifications", "Notification History" },
+  [":"] = { "command_history", "Command History" },
 
   -- Git
   ["gb"] = { "git_branches", "Git branches" },
