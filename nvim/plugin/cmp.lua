@@ -62,6 +62,7 @@ cmp.setup({
       copilot = {
         name = "Copilot",
         module = "blink-copilot",
+        async = true, -- REALLY speeds things up especially since I have such a high debounce time
         -- score_offset = 90,
       },
     },
