@@ -1,11 +1,6 @@
 -- Setup git symbols
 require("gitsigns").setup()
 
--- Indent blankline
-require("ibl").setup({
-  scope = { enabled = false },
-})
-
 -- Enhance Neovim's native comments
 require("ts-comments").setup()
 

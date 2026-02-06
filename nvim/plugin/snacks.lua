@@ -46,6 +46,7 @@ Snacks.setup({
     --   matcher = { fuzzy = true },
     -- },
   },
+  indent = { enabled = true },
   scratch = { enabled = true },
   --scroll = { enabled = true },
   terminal = { enable = true },

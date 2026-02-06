@@ -31,7 +31,6 @@ let
     # Pretty
     nvim-highlight-colors
     rainbow-delimiters-nvim
-    indent-blankline-nvim
     gitsigns-nvim
     vim-tpipeline # Tmux
 
