@@ -23,7 +23,6 @@ let
     trouble-nvim
     orgmode # TODO: Remove later
     luasnip
-    friendly-snippets
 
     # Completions
     blink-cmp
