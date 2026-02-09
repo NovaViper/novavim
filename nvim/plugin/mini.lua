@@ -27,6 +27,14 @@ MiniComment.setup({
   },
 })
 
+-- Surround actions
+MiniSurround = require("mini.surround")
+MiniSurround.setup()
+
+-- Extend and create a/i text objects
+MiniAI = require("mini.ai")
+MiniAI.setup()
+
 -- Keymap
 -- Mini.map keybindings
 nnoremap("<Leader>mc", MiniMap.close, "Close minimap")
