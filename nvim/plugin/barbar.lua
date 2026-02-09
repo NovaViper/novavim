@@ -28,7 +28,7 @@ bar.setup({
 })
 
 scope = require("scope")
-scope.setup({})
+scope.setup()
 
 -- Keymap
 nnoremap("<A-,>", "<Cmd>BufferPrevious<CR>", "Go to the previous buffer (barbar)")

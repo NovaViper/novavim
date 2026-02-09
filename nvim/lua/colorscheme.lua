@@ -6,4 +6,4 @@ catppuccin.setup({
 vim.cmd([[colorscheme catppuccin]])
 
 -- Colorize hex codes
-require("nvim-highlight-colors").setup({})
+require("nvim-highlight-colors").setup()
