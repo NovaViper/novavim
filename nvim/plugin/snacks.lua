@@ -115,30 +115,32 @@ local picker_mappings = {
 
   -- Tasks
   ["tl"] = { "todo_comments", "List TODO comments" },
+  -- Taken from https://linkarzu.com/posts/neovim/snacks-picker/
+  ["tt"] = {
+    "grep",
+    "Search for incomplete tasks",
+    {
+      show_empty = true,
+      search = "^\\s*- \\[ \\]",
+      -- Enabled so the pattern is interpreted as a regex
+      regex = true,
+      -- Not needed since we're using a fixed pattern
+      live = false,
+      -- Restrict to current working directory
+      dirs = { vim.fn.getcwd() },
+      -- Include files ignored by .gitignore
+      args = { "--no-ignore" },
+    },
+  },
 }
 
 -- Table for other Snacks mappings
 local fn_mappings = {
+  -- General
+  ["Z"] = { Snacks.zen, "Zen Mode" },
+  ["<C-t>"] = { Snacks.terminal, "Terminal" },
   ["."] = { Snacks.scratch, "Toggle scratch buffer" },
   ["S"] = { Snacks.scratch, "Select scratch buffer" },
-  -- Taken from https://linkarzu.com/posts/neovim/snacks-picker/
-  ["tt"] = {
-    function()
-      Snacks.picker.grep({
-        show_empty = true,
-        search = "^\\s*- \\[ \\]",
-        -- Enabled so the pattern is interpreted as a regex
-        regex = true,
-        -- Not needed since we're using a fixed pattern
-        live = false,
-        -- Restrict to current working directory
-        dirs = { vim.fn.getcwd() },
-        -- Include files ignored by .gitignore
-        args = { "--no-ignore" },
-      })
-    end,
-    "Search for incomplete tasks",
-  },
 }
 
 -- Toggles

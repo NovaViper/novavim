@@ -17,6 +17,7 @@ MiniMap.setup({
   },
 })
 
+-- Comment lines
 MiniComment = require("mini.comment")
 MiniComment.setup({
   mappings = {
