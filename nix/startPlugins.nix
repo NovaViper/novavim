@@ -39,6 +39,7 @@ let
 
     # Neat
     barbar-nvim
+    scope-nvim # For filtering buffers per tab
     lualine-nvim
     cord-nvim
     stay-centered-nvim

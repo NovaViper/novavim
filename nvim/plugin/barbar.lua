@@ -1,6 +1,10 @@
 local bar = require("barbar")
 
 bar.setup({
+  hooks = {
+    pre_tab_leave = function() vim.api.nvim_exec_autocmds("User", { pattern = "ScopeTabLeavePre" }) end,
+    post_tab_enter = function() vim.api.nvim_exec_autocmds("User", { pattern = "ScopeTabEnterPost" }) end,
+  },
   icons = {
     preset = "default",
     -- Enables / disables diagnostic symbols
@@ -23,6 +27,10 @@ bar.setup({
   },
 })
 
+scope = require("scope")
+scope.setup({})
+
+-- Keymap
 nnoremap("<A-,>", "<Cmd>BufferPrevious<CR>", "Go to the previous buffer (barbar)")
 nnoremap("<A-.>", "<Cmd>BufferNext<CR>", "Go to the next buffer (barbar)")
 nnoremap("<A-<>", "<Cmd>BufferPrevious<CR>", "Go to the previous buffer (barbar)")

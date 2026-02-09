@@ -30,7 +30,15 @@ session.setup({
 
   -- Integration with barbar
   pre_save_cmds = {
-    function() vim.api.nvim_exec_autocmds("User", { pattern = "SessionSavePre" }) end,
+    function()
+      vim.api.nvim_exec_autocmds("User", { pattern = "SessionSavePre" })
+      vim.api.nvim_exec_autocmds("User", { pattern = "ScopeSaveState" })
+      pcall(vim.cmd, "ScopeSaveState")
+    end,
+  },
+
+  post_restore_cmds = {
+    function() vim.api.nvim_exec_autocmds("User", { pattern = "ScopeLoadSave" }) end,
   },
 
   -- If you're in a subdirectory of a git repo, and neovim wasn't called with a
