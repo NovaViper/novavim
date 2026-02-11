@@ -5,7 +5,9 @@
 --require("snacks.profiler").startup()
 
 require("init")
-require("lz.n").load("lazy")
+LZ = require("lze")
+LZE = require("lzextras")
+LZ.load({ import = LZE.mod_dir_to_spec("lazy") })
 
 -- Add to this whenever you add a new server to the `lsp` folder!
 -- Ridiculous that nvim can't load them for you as far as I can tell

@@ -10,7 +10,8 @@ let
     # Basic essentials
     nvim-treesitter.withAllGrammars
     nvim-lspconfig
-    lz-n
+    lze
+    lzextras
 
     # Features
     tiny-inline-diagnostic-nvim
