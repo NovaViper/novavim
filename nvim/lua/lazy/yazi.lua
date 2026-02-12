@@ -2,6 +2,11 @@ return {
   "yazi.nvim",
   event = { "DeferredUIEnter" },
   cmd = { "Yazi" }, -- Lazy load on yazi command
+  keys = {
+    { "<leader>ff", "<cmd>Yazi<cr>", desc = "Open yazi at current file" },
+    { "<leader>fg", "<cmd>Yazi cwd<cr>", desc = "Open yazi at working directory" },
+    { "<c-y>", "<cmd>Yazi toggle<cr>", desc = "Resume the last yazi session" },
+  },
   after = function()
     local Yazi = require("yazi")
     Yazi.setup({
@@ -16,10 +21,5 @@ return {
 
     -- Force yaz to replace netrw
     vim.g.loaded_netrwPlugin = 1
-
-    --- Keybinds
-    nnoremap("<leader>ff", "<cmd>Yazi<cr>", "Open yazi at current file")
-    noremap("<leader>fg", "<cmd>Yazi cwd<cr>", "Open yazi at working directory")
-    noremap("<c-y>", "<cmd>Yazi toggle<cr>", "Resume the last yazi session")
   end,
 }

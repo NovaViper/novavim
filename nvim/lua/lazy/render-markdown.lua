@@ -1,5 +1,6 @@
 return {
   "render-markdown.nvim",
+  ft = { "markdown", "codecompanion" },
   after = function()
     o.wrap = true
 
