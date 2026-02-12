@@ -48,14 +48,6 @@ let
     # Other
     lazydev-nvim
     nvim-web-devicons # Fancy icons
-
-    # Copilot
-    copilot-lua
-    blink-copilot
-    # copilot-lualine
-    codecompanion-nvim
-    codecompanion-spinner-nvim
-    codecompanion-history-nvim
   ];
 
   # Plugins not available on nixpkgs

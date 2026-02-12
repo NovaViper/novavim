@@ -11,6 +11,14 @@ let
     # Pretty
     helpview-nvim # Very pretty vimdocs
     render-markdown-nvim
+
+    # Copilot
+    copilot-lua
+    blink-copilot
+    # copilot-lualine
+    codecompanion-nvim
+    codecompanion-spinner-nvim
+    codecompanion-history-nvim
   ];
 
   # Plugins not available on nixpkgs

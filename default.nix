@@ -10,6 +10,12 @@ mnw.lib.wrap pkgs {
   plugins = {
     # List of plugins to load automatically
     start = import ./nix/startPlugins.nix { inherit pkgs; };
+
+    # Stop gap to prevent plugin depdencies for optional plugins from being loaded
+    startAttrs = {
+      "codecompanion.nvim" = null;
+    };
+
     # List of plugins to not load automatically (for lazy loading plugins)
     opt = import ./nix/optPlugins.nix { inherit pkgs; };
 
