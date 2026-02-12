@@ -57,6 +57,6 @@ o.switchbuf = "useopen,usetab,newtab"
 -- Enable global statusline
 o.laststatus = 3
 
--- Save pretty much everything to a session save, needed for auto-session and
--- barbar
+-- Save pretty much everything to a session save, needed for auto-session,
+-- barbar, and scope
 o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions,globals"

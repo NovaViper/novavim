@@ -1,8 +1,8 @@
 return {
   {
     "copilot.lua",
-    cmd = { "Copilot" },
-    event = { "DeferredUIEnter" },
+    cmd = "Copilot",
+    event = "DeferredUIEnter",
     keys = {
       {
         "<leader>co",
@@ -41,7 +41,7 @@ return {
   },
   {
     "blink-copilot",
-    event = { "InsertEnter" },
+    event = "InsertEnter",
     after = function()
       require("blink-copilot").setup({
         debounce = 1500, -- longer debounce reduces queries

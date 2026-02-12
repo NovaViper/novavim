@@ -1,6 +1,6 @@
 return {
   "which-key.nvim",
-  event = { "DeferredUIEnter" },
+  event = "DeferredUIEnter",
   keys = {
     {
       "<leader>?",

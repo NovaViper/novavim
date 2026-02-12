@@ -1,6 +1,6 @@
 return {
-  { "codecompanion-spinner.nvim", dep_of = { "codecompanion.nvim" } },
-  { "codecompanion-history.nvim", dep_of = { "codecompanion.nvim" } },
+  { "codecompanion-spinner.nvim", dep_of = "codecompanion.nvim" },
+  { "codecompanion-history.nvim", dep_of = "codecompanion.nvim" },
   {
     "codecompanion.nvim",
     cmd = { "CodeCompanion", "CodeCompanionChat", "CodeCompanionHistory" },

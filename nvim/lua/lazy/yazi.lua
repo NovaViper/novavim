@@ -1,7 +1,7 @@
 return {
   "yazi.nvim",
-  event = { "DeferredUIEnter" },
-  cmd = { "Yazi" }, -- Lazy load on yazi command
+  event = "DeferredUIEnter",
+  cmd = "Yazi", -- Lazy load on yazi command
   keys = {
     { "<leader>ff", "<cmd>Yazi<cr>", desc = "Open yazi at current file" },
     { "<leader>fg", "<cmd>Yazi cwd<cr>", desc = "Open yazi at working directory" },
