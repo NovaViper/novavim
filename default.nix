@@ -2,6 +2,9 @@
   pkgs,
   mnw,
 }:
+let
+  args = { inherit pkgs; };
+in
 mnw.lib.wrap pkgs {
   appName = "nvim";
   neovim = pkgs.neovim-unwrapped;
@@ -9,15 +12,13 @@ mnw.lib.wrap pkgs {
 
   plugins = {
     # List of plugins to load automatically
-    start = import ./nix/startPlugins.nix { inherit pkgs; };
+    startAttrs = import ./nix/startPlugins.nix args;
 
-    # Stop gap to prevent plugin depdencies for optional plugins from being loaded
-    startAttrs = {
-      "codecompanion.nvim" = null;
-    };
+    # Expose tree-sitter grammars for use in start plugins
+    start = import ./nix/treesitter.nix args;
 
     # List of plugins to not load automatically (for lazy loading plugins)
-    opt = import ./nix/optPlugins.nix { inherit pkgs; };
+    optAttrs = import ./nix/optPlugins.nix args;
 
     # Plugins which can be reloaded without rebuilding
     dev.config = {

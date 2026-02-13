@@ -2,6 +2,15 @@
 let
   inherit (pkgs) callPackage vimPlugins;
 
+  # Import disables from optPlugins.nix
+  optPlugins = import ./optPlugins.nix { inherit pkgs; };
+  overrides = optPlugins.overrides or { };
+
+  # Plugins not available on nixpkgs
+  customPlugins = {
+    gpg-nvim = callPackage ./startPlugins/gpg-nvim.nix { };
+  };
+
   # Plugins from nixpkgs
   fromNixpkgs = with vimPlugins; [
     # Theme
@@ -50,9 +59,18 @@ let
     nvim-web-devicons # Fancy icons
   ];
 
-  # Plugins not available on nixpkgs
-  customPlugins = {
-    gpg-nvim = callPackage ./startPlugins/gpg-nvim.nix { };
-  };
+  # Convert list to attrset
+  nixpkgsAttrs = builtins.listToAttrs (
+    map (pkg: {
+      name = pkg.pname or pkg.name;
+      value = pkg;
+    }) fromNixpkgs
+  );
+
+  # Merge custom and nixpkgs plugins
+  baseAttrs = customPlugins // nixpkgsAttrs;
+
+  # Apply disables/overrides (null disables plugin)
+  startAttrs = baseAttrs // overrides;
 in
-fromNixpkgs ++ (builtins.attrValues customPlugins)
+startAttrs
