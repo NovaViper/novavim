@@ -3,11 +3,12 @@ return {
   { "codecompanion-history.nvim", dep_of = "codecompanion.nvim" },
   {
     "codecompanion.nvim",
-    cmd = { "CodeCompanion", "CodeCompanionChat", "CodeCompanionHistory" },
+    cmd = { "CodeCompanion", "CodeCompanionChat", "CodeCompanionHistory", "CodeCompanionActions" },
     keys = {
       { "<leader>cc", "<cmd>CodeCompanion<cr>", desc = "Open Code Companion" },
       { "<leader>cC", "<cmd>CodeCompanionChat<cr>", desc = "Start Code Companion Chat" },
       { "<leader>ch", "<cmd>CodeCompanionHistory<cr>", desc = "Open Code Companion History" },
+      { "<leader>ca", "<cmd>CodeCompanionActions<cr>", desc = "Open Code Companion Actions" },
     },
     after = function()
       require("codecompanion").setup({

@@ -1,6 +1,8 @@
 return {
   "which-key.nvim",
   event = "DeferredUIEnter",
+  on_require = "which-key",
+  beforeAll = function() WK = require("which-key") end,
   keys = {
     {
       "<leader>?",

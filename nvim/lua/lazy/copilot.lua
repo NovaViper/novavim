@@ -3,6 +3,7 @@ return {
     "copilot.lua",
     cmd = "Copilot",
     event = "DeferredUIEnter",
+    on_require = "copilot",
     keys = {
       {
         "<leader>co",
