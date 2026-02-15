@@ -43,6 +43,7 @@ return {
   {
     "blink-copilot",
     event = "InsertEnter",
+    on_require = "blink-copilot",
     after = function()
       require("blink-copilot").setup({
         debounce = 1500, -- longer debounce reduces queries
