@@ -2,30 +2,56 @@
 o = vim.o
 g = vim.g
 
+-- Enable 24-bit color support
 o.termguicolors = true
 
+-- Set rounded borders to all window elements
+o.winborder = "rounded"
+
+-- Show partial commands in the last line of the screen
 o.showcmd = true
 
-o.clipboard = "unnamedplus" -- Set to system clipboard
-o.undofile = true -- Persistent undo
-o.mouse = "nvi" -- Enable mouse
-o.mousemoveevent = true -- Enable mouse move events (support for hover actions)
+-- Set to system clipboard
+o.clipboard = "unnamedplus"
+-- Persistent undo
+o.undofile = true
+-- Enable mouse
+o.mouse = "nvi"
+-- Enable mouse move events (support for hover actions)
+o.mousemoveevent = true
 
-o.cursorline = true -- Highlight the line that the cursor is on
+-- Make closing tabs ACTUALLY close them
+o.hidden = false
+
+-- Highlight both the text and line number that the cursor is on
+o.cursorline = true
 o.cursorlineopt = "both"
 
-o.spell = true -- Enable spell check
+-- Enable spell check and set language to US English
+o.spell = true
 o.spelllang = "en_us"
 
-o.hlsearch = true -- Highlight search matches
-o.number = true -- Show number lines
-o.relativenumber = true -- Show the line number relative to the line with the cursor in front of each line
-o.smartcase = true -- Use case-sensitive search if any of the search characters are uppercase
+-- Highlight search matches
+o.hlsearch = true
+-- Show number lines
+o.number = true
+-- Show the line number relative to the line with the cursor in front of each
+-- line
+o.relativenumber = true
+-- Use case-sensitive search if any of the search characters are uppercase
+o.smartcase = true
 
-o.autoindent = true -- Copy indention from previous line when starting new line
-o.expandtab = true -- spaces as tab
-o.tabstop = 2 -- 2 spaces for tabs
-o.shiftwidth = 2 -- 2 spaces for tabs
+-- Copy indention from previous line when starting new line
+o.autoindent = true
+-- spaces as tab
+o.expandtab = true
+-- 2 spaces for tabs
+o.tabstop = 2
+-- Reuse value of tabstop
+o.shiftwidth = 0
+
+-- Shows a continuation `>>>` when wrapping line is cut off
+o.smoothscroll = true
 
 -- Autowrap comments while I type
 -- Continue line comments in all languages. Without adding `ro`, it only seemed
