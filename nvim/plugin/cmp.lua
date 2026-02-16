@@ -6,7 +6,7 @@ vim.lsp.config("*", {
 })
 
 cmp.setup({
-  -- Make completion accept binding use enter key
+  -- Make completions accept binding use enter key
   -- See https://cmp.saghen.dev/configuration/keymap.html#enter for bindings
   keymap = { preset = "enter" },
   completion = {
@@ -27,6 +27,10 @@ cmp.setup({
       auto_show = true,
       auto_show_delay_ms = 0,
     },
+
+    -- Replacement for mini.pairs/nvim-autopairs for completions
+    accept = { auto_brackets = { enabled = true } },
+
     -- Nice renders
     menu = {
       draw = {
@@ -46,13 +50,6 @@ cmp.setup({
     -- Loading lazydev through blink leads to better signature help and overall
     -- a better experience
     providers = {
-      cmdline = {
-        min_keyword_length = function(ctx)
-          -- when typing a command, only show when the keyword is 3 characters or longer
-          if ctx.mode == "cmdline" and string.find(ctx.line, " ") == nil then return 3 end
-          return 0
-        end,
-      },
       lazydev = {
         name = "LazyDev",
         module = "lazydev.integrations.blink",
@@ -76,14 +73,16 @@ cmp.setup({
   cmdline = {
     enabled = true,
     completion = {
-      list = { selection = { preselect = true } },
+      -- In cmdline, we want to manually select something - and once it's
+      -- selected, we can keep scrolling
+      list = { selection = { preselect = false, auto_insert = true } },
+      -- Make completions menu show automatically
       menu = { auto_show = true },
-      ghost_text = { enabled = true },
     },
     -- Much better keybindings for the cmdline
     keymap = {
       ["<Tab>"] = { "accept" },
-      ["<CR>"] = { "accept_and_enter", "fallback" },
+      ["<S-Tab>"] = { "accept_and_enter", "fallback" },
       ["<Down>"] = { "select_next", "fallback" },
       ["<Up>"] = { "select_prev", "fallback" },
     },
