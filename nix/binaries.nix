@@ -39,6 +39,7 @@ let
     uv
     ## Lua
     stylua
+    lua-language-server
     # sh
     shfmt
     shellcheck
