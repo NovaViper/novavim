@@ -48,8 +48,7 @@ let
     diffview-nvim
 
     # Neat
-    barbar-nvim
-    scope-nvim # For filtering buffers per tab
+    bufferline-nvim
     lualine-nvim
     cord-nvim
     stay-centered-nvim

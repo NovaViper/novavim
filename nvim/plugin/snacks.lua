@@ -114,9 +114,9 @@ local picker_mappings = {
   ["gd"] = { "git_diff", "Git diff (hunks)", { layout = "vertical" } },
 
   -- Tasks
-  ["tl"] = { "todo_comments", "List TODO comments" },
+  ["st"] = { "todo_comments", "List TODO comments" },
   -- Taken from https://linkarzu.com/posts/neovim/snacks-picker/
-  ["tt"] = {
+  ["sT"] = {
     "grep",
     "Search for incomplete tasks",
     {

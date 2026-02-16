@@ -23,4 +23,4 @@ require("nvim-treesitter.config").setup({
 -- Keep cursor centered to screen
 local stay_centered = require("stay-centered")
 stay_centered.setup({ skip_filetypes = { "terminal" } })
-noremapany({ "n", "v" }, "<leader>st", stay_centered.toggle, "Toggle stay-centered.nvim")
+noremapany({ "n", "v" }, "<leader>uc", stay_centered.toggle, "Toggle stay-centered.nvim")
