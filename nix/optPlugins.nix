@@ -10,6 +10,7 @@ let
     # Features
     which-key-nvim
     yazi-nvim
+    venv-selector-nvim
 
     # Pretty
     helpview-nvim # Very pretty vimdocs
