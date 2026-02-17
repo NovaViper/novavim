@@ -29,7 +29,6 @@ Snacks.setup({
       },
     },
   },
-  --explorer = { enabled = true },
   notifier = {
     enabled = true,
     style = "fancy", -- similar to the default nvim-notify style
@@ -42,13 +41,9 @@ Snacks.setup({
       fuzzy = true, -- use fuzzy matching
       frecency = true, -- Based on how often I open a file
     },
-    -- explorer = {
-    --   matcher = { fuzzy = true },
-    -- },
   },
   indent = { enabled = true },
   scratch = { enabled = true },
-  --scroll = { enabled = true },
   terminal = { enable = true },
   toggle = { enabled = true },
   image = { enabled = true },
