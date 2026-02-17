@@ -2,10 +2,12 @@
 vim.lsp.inlay_hint.enable(true)
 
 vim.diagnostic.config({
+  -- Sort diagnostics by severity
   severity_sort = true,
-  -- float = {
-  --   border = "rounded",
-  -- },
+  float = {
+    -- Use rounded borders
+    border = "rounded",
+  },
 })
 
 -- Keymaps
