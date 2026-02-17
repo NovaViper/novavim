@@ -6,3 +6,4 @@ require("colorscheme")
 require("lsp")
 
 require("autocmds.suspend")
+require("autocmds.notifs")
