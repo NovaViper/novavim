@@ -3,7 +3,9 @@ let
   inherit (pkgs) callPackage vimPlugins;
 
   # Plugins not available on nixpkgs
-  customPlugins = { };
+  customPlugins = {
+    codecompanion-spinners-nvim = callPackage ./optPlugins/codecompanion-spinners.nix { };
+  };
 
   # Plugins from nixpkgs
   fromNixpkgs = with vimPlugins; [
