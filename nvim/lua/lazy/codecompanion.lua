@@ -1,8 +1,9 @@
 return {
-  { "codecompanion-spinner.nvim", dep_of = "codecompanion.nvim" },
+  { "codecompanion-spinners-nvim", dep_of = "codecompanion.nvim" },
   { "codecompanion-history.nvim", dep_of = "codecompanion.nvim" },
   {
     "codecompanion.nvim",
+    on_require = "codecompanion",
     cmd = { "CodeCompanion", "CodeCompanionChat", "CodeCompanionHistory", "CodeCompanionActions" },
     keys = {
       { "<leader>cc", "<cmd>CodeCompanion<cr>", desc = "Open Code Companion" },
@@ -39,7 +40,9 @@ return {
           },
         },
         extensions = {
-          spinner = {},
+          spinner = {
+            opts = { style = "snacks" },
+          },
           history = {
             enabled = true,
             opts = {
