@@ -3,8 +3,8 @@ return {
   event = "DeferredUIEnter",
   cmd = "Yazi", -- Lazy load on yazi command
   keys = {
-    { "<leader>ff", "<cmd>Yazi<cr>", desc = "Open yazi at current file" },
-    { "<leader>fg", "<cmd>Yazi cwd<cr>", desc = "Open yazi at working directory" },
+    { "<leader>fd", "<cmd>Yazi<cr>", desc = "Find directory with yazi" },
+    { "<leader>fF", "<cmd>Yazi cwd<cr>", desc = "Open yazi at working directory" },
     { "<c-y>", "<cmd>Yazi toggle<cr>", desc = "Resume the last yazi session" },
   },
   after = function()

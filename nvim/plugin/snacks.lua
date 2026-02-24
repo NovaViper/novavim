@@ -36,7 +36,7 @@ Snacks.setup({
   picker = {
     enabled = true,
     ui_select = true,
-    layout = { preset = "ivy", layout = { position = "bottom" } },
+    layout = { preset = "default" },
     matcher = {
       fuzzy = true, -- use fuzzy matching
       frecency = true, -- Based on how often I open a file
@@ -89,6 +89,7 @@ local picker_mappings = {
   ["<space><space>"] = { "smart", "Smart find files" },
   ["fb"] = { "buffers", "Find buffers" },
   [","] = { "buffers", "Find buffers" },
+  ["ff"] = { "files", "Find files" },
   ["fr"] = { "recent", "Find recent files" },
   ["fp"] = { "projects", "Find projects" },
   ["fz"] = { "zoxide", "Find files with zoxide" },
