@@ -4,12 +4,19 @@ return {
   {
     "codecompanion.nvim",
     on_require = "codecompanion",
-    cmd = { "CodeCompanion", "CodeCompanionChat", "CodeCompanionHistory", "CodeCompanionActions" },
+    cmd = {
+      "CodeCompanion",
+      "CodeCompanionChat",
+      "CodeCompanionHistory",
+      "CodeCompanionActions",
+      "CodeCompanionSummaries",
+    },
     keys = {
       { "<leader>cc", "<cmd>CodeCompanion<cr>", desc = "Open Code Companion" },
       { "<leader>cC", "<cmd>CodeCompanionChat<cr>", desc = "Start Code Companion Chat" },
       { "<leader>ch", "<cmd>CodeCompanionHistory<cr>", desc = "Open Code Companion History" },
       { "<leader>ca", "<cmd>CodeCompanionActions<cr>", desc = "Open Code Companion Actions" },
+      { "<leader>cs", "<cmd>CodeCompanionSummaries<cr>", desc = "Open Code Companion Summaries" },
     },
     after = function()
       require("codecompanion").setup({
@@ -49,6 +56,10 @@ return {
               expiration_days = 0, --Wanting to change this later
               picker = "snacks",
               dir_to_save = vim.fn.stdpath("data") .. "/codecompanion_chats.json",
+              summary = {
+                -- Generate summary for current chat
+                create_summary_keymap = "gbg",
+              },
             },
           },
         },
