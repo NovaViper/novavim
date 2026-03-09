@@ -21,6 +21,9 @@ let
     curl
     file
 
+    # lua-snippet
+    lua54Packages.jsregexp
+
     # LSP tools
     semgrep
     tree-sitter
