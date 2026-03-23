@@ -128,5 +128,5 @@ end
 cabbrev("d", "close")
 cabbrev("wd", "w | close")
 cabbrev("q", "qa")
-cabbrev("wq", "wqa")
+cabbrev("wq", "w | qa")
 cabbrev("src", "source")
