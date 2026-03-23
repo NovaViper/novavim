@@ -2,6 +2,7 @@
 ---@type table<number, {token:lsp.ProgressToken, msg:string, done:boolean}[]>
 local progress = vim.defaulttable()
 vim.api.nvim_create_autocmd("LspProgress", {
+  group = vim.api.nvim_create_augroup("SnacksLspProgress", { clear = true }),
   ---@param ev {data: {client_id: integer, params: lsp.ProgressParams}}
   callback = function(ev)
     local client = vim.lsp.get_client_by_id(ev.data.client_id)

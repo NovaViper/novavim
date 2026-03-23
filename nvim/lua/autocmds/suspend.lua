@@ -2,6 +2,7 @@
 -- so, give us a notification to choose what to do. Not a very pretty
 -- notification
 vim.api.nvim_create_autocmd("VimResume", {
+  group = vim.api.nvim_create_augroup("CheckOnSuspend", {}),
   pattern = "*",
   command = "checktime",
 })
