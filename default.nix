@@ -7,6 +7,10 @@ let
 in
 mnw.lib.wrap pkgs {
   appName = "nvim";
+  aliases = [
+    "vi"
+    "vim"
+  ];
   neovim = pkgs.neovim-unwrapped;
   luaFiles = [ ./init.lua ];
 
