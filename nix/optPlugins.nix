@@ -5,7 +5,6 @@ let
   # Plugins not available on nixpkgs
   customPlugins = {
     codecompanion-spinners-nvim = callPackage ./optPlugins/codecompanion-spinners.nix { };
-    venv-selector-nvim = callPackage ./optPlugins/venv-selector-nvim.nix { };
   };
 
   # Plugins from nixpkgs
@@ -13,6 +12,7 @@ let
     # Features
     which-key-nvim
     yazi-nvim
+    venv-selector-nvim
 
     # Pretty
     helpview-nvim # Very pretty vimdocs

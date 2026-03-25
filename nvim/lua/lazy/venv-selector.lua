@@ -1,5 +1,5 @@
 return {
-  "venv-selector-nvim",
+  "venv-selector.nvim",
   ft = "python",
   cmd = { "VenvSelect", "VenvSelectLog" },
   keys = {
