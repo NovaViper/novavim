@@ -1,16 +1,16 @@
-cmp = require("blink.cmp")
-lsp_capabilities = cmp.get_lsp_capabilities()
+blink = require("blink.cmp")
+lsp_capabilities = blink.get_lsp_capabilities()
 
 vim.lsp.config("*", {
   capabilities = lsp_capabilities,
 })
 
-cmp.setup({
+blink.setup({
   -- Make completions accept binding use enter key
   -- See https://cmp.saghen.dev/configuration/keymap.html#enter for bindings
   keymap = { preset = "enter" },
   completion = {
-    -- Make copmletions care about before and after the cursor
+    -- Make completions care about before and after the cursor
     keyword = { range = "full" },
     list = {
       selection = {
@@ -46,7 +46,7 @@ cmp.setup({
     },
   },
   sources = {
-    default = { "lsp", "path", "snippets", "buffer", "lazydev", "copilot" },
+    default = { "lazydev", "lsp", "path", "snippets", "buffer", "omni", "copilot" },
     -- Loading lazydev through blink leads to better signature help and overall
     -- a better experience
     providers = {
@@ -64,6 +64,22 @@ cmp.setup({
       },
     },
   },
+
+  snippets = {
+    preset = "luasnip",
+    -- From https://github.com/BirdeeHub/nixCats-nvim/blob/c6000fb730d4067e3e1d65e9d5a2cbcd1ceaef83/templates/example/lua/myLuaConf/plugins/completion.lua#L104
+    -- Prevents snippet placeholders from staying when you leave insert mode
+    active = function()
+      local ls = require("luasnip")
+      if ls.in_snippet() and not blink.is_visible() then
+        return true
+      elseif not ls.in_snippet() and vim.fn.mode() == "n" then
+        ls.unlink_current()
+      end
+      return false
+    end,
+  },
+
   --Show lsp signatures for functions!
   signature = {
     enabled = true,
