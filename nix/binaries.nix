@@ -27,7 +27,7 @@ let
     # LSP tools
     semgrep
     tree-sitter
-    nodePackages.vscode-langservers-extracted
+    vscode-langservers-extracted
     yaml-language-server
     ## Copilot
     nodejs-slim_latest
@@ -46,11 +46,11 @@ let
     # sh
     shfmt
     shellcheck
-    nodePackages.bash-language-server
+    bash-language-server
     #fish
     fish-lsp
     # PHP, CSS, Angular, JavaScript, Json
-    nodePackages.prettier
+    prettier
     prettierd
     # Justfile
     just-lsp
