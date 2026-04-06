@@ -2,9 +2,8 @@
 -- We do it before everything so it can help us the most
 vim.loader.enable()
 
--- Global variables
-o = vim.o
-g = vim.g
+local o = vim.o
+local g = vim.g
 
 -- Enable 24-bit color support
 o.termguicolors = true

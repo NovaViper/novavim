@@ -2,7 +2,7 @@ return {
   "render-markdown.nvim",
   ft = { "markdown", "codecompanion" },
   after = function()
-    o.wrap = true
+    vim.o.wrap = true
 
     require("render-markdown").setup({
       file_types = { "markdown", "codecompanion" },
