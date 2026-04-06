@@ -1,3 +1,7 @@
+-- Improves startup time
+-- We do it before everything so it can help us the most
+vim.loader.enable()
+
 -- Global variables
 o = vim.o
 g = vim.g
