@@ -1,4 +1,6 @@
 local o = vim.o
+-- Enable experimental UI
+require("vim._core.ui2").enable({})
 
 -- Set rounded borders to all window elements
 o.winborder = "rounded"
