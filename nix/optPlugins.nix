@@ -15,7 +15,6 @@ let
     venv-selector-nvim
 
     # Pretty
-    helpview-nvim # Very pretty vimdocs
     render-markdown-nvim
 
     # Copilot
