@@ -27,6 +27,7 @@ let
     auto-session
     conform-nvim
     ts-comments-nvim
+    nvim-autopairs
     snacks-nvim
     mini-nvim
     todo-comments-nvim

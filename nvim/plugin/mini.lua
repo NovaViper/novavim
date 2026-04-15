@@ -1,7 +1,3 @@
--- Autopair brackets and paranethesis
-MiniPair = require("mini.pairs")
-MiniPair.setup()
-
 -- Window with buffer text overview
 MiniMap = require("mini.map")
 MiniMap.setup({
