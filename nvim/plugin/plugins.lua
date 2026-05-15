@@ -20,6 +20,14 @@ require("nvim-treesitter.config").setup({
   },
 })
 
+require("codedocs").setup({
+  languages = {
+    python = { default_style = "Google" },
+  },
+})
+nnoremap("<leader>k", "<cmd>Codedocs<CR>", "Insert annotation")
+-- Delete annotations with `dgc`
+
 -- Keep cursor centered to screen
 local stay_centered = require("stay-centered")
 stay_centered.setup({ skip_filetypes = { "terminal" } })

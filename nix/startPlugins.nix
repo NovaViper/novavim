@@ -9,6 +9,7 @@ let
   # Plugins not available on nixpkgs
   customPlugins = {
     gpg-nvim = callPackage ./startPlugins/gpg-nvim.nix { };
+    codedocs-nvim = callPackage ./startPlugins/codedocs-nvim.nix { };
   };
 
   # Plugins from nixpkgs
