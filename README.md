@@ -6,8 +6,9 @@
 
 # My Neovim Configurations
 
-[![Built with Nix](https://img.shields.io/badge/Built_with_Nix-white.svg?style=for-the-badge&logo=nixos&logoColor=white&color=41439a&test.svg)](https://builtwithnix.org)
-[![Github](https://img.shields.io/badge/Github-white.svg?style=for-the-badge&logo=github&logoColor=white&color=121011&test.svg)](https://github.com/NovaViper/novavim)
+[![img](https://img.shields.io/badge/Built_with_Nix-white.svg?style=for-the-badge&logo=nixos&logoColor=white&color=41439a&test.svg)](https://builtwithnix.org)
+[![img](https://img.shields.io/badge/Codeberg-white.svg?style=for-the-badge&logo=codeberg&logoColor=white&color=2185D0&test.svg)](https://codeberg.org/NovaViper/novavim)
+[![img](https://img.shields.io/badge/Github-white.svg?style=for-the-badge&logo=github&logoColor=white&color=121011&test.svg)](https://github.com/NovaViper/novavim)
 
 My portable Neovim configuration powered by Nix Flakes.
 
