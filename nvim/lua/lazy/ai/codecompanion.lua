@@ -12,10 +12,13 @@ return {
       "CodeCompanionSummaries",
     },
     keys = {
-      { "<leader>cc", "<cmd>CodeCompanion<cr>", desc = "Open Code Companion" },
-      { "<leader>cC", "<cmd>CodeCompanionChat<cr>", desc = "Start Code Companion Chat" },
-      { "<leader>ch", "<cmd>CodeCompanionHistory<cr>", desc = "Open Code Companion History" },
-      { "<leader>ca", "<cmd>CodeCompanionActions<cr>", desc = "Open Code Companion Actions" },
+      { "<leader>c", desc = "CodeCompanion" },
+      { "<leader>cc", "<cmd>CodeCompanionChat<cr>", desc = "Start New Chat" },
+      { "<leader>ca", "<cmd>CodeCompanionChat Add<cr>", desc = "Add Selection to Chat" },
+      { "<leader>ci", "<cmd>CodeCompanion<cr>", desc = "Inline Prompt" },
+      { "<leader>ch", "<cmd>CodeCompanionHistory<cr>", desc = "Open Chat History" },
+      { "<leader>cp", "<cmd>CodeCompanionActions<cr>", desc = "Open Actions Palette" },
+      { "<leader>ct", "<cmd>CodeCompanionChat Toggle<cr>", desc = "Toggle Chat" },
       { "<leader>cs", "<cmd>CodeCompanionSummaries<cr>", desc = "Open Code Companion Summaries" },
     },
     after = function()
@@ -43,7 +46,6 @@ return {
           chat = {
             auto_scoll = false,
             fold_context = true,
-            start_in_insert_mode = true, -- Start chat buffer in insert mode
           },
         },
         extensions = {
