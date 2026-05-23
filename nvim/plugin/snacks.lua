@@ -89,7 +89,7 @@ local picker_mappings = {
   ["<space><space>"] = { "smart", "Smart find files" },
   ["fb"] = { "buffers", "Find buffers" },
   [","] = { "buffers", "Find buffers" },
-  ["ff"] = { "files", "Find files" },
+  ["ff"] = { "files", "Find files", { hidden = true } },
   ["fr"] = { "recent", "Find recent files" },
   ["fp"] = { "projects", "Find projects" },
   ["fz"] = { "zoxide", "Find files with zoxide" },
