@@ -31,6 +31,9 @@ MiniSurround.setup()
 MiniAI = require("mini.ai")
 MiniAI.setup()
 
+MiniBufRemove = require("mini.bufremove")
+MiniBufRemove.setup()
+
 -- Keymap
 -- Mini.map keybindings
 nnoremap("<Leader>mc", MiniMap.close, "Close minimap")

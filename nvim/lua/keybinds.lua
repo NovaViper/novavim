@@ -70,8 +70,45 @@ vnoremap(">", ">gv")
 -- Clear highlights on search when pressing <Esc> in normal mode from kickstart
 nnoremap("<Esc>", "<cmd>nohlsearch<CR>")
 nnoremap("<leader>fN", "<cmd>ene | startinsert<cr>", "Create a new empty file")
-nnoremap("<leader>bk", function() Snacks.bufdelete() end, "Kill buffer")
-nnoremap("<leader>bK", function() Snacks.bufdelete.other() end, "Kill all but current buffers")
+
+-- mini.bufremove
+-- Smart delete
+nnoremap("<leader>bk", function()
+  local bufnr = vim.api.nvim_get_current_buf()
+  local force = false
+  -- Scratch / special buffers
+  local is_scratch = vim.bo[bufnr].buftype ~= ""
+    or vim.bo[bufnr].buflisted == false
+    or vim.api.nvim_buf_get_name(bufnr) == ""
+
+  if vim.bo[bufnr].modified then
+    -- See :help confirm() for more info
+    local choice = vim.fn.confirm("Buffer has unsaved changes. Delete anyway?", "&Yes\n&No", 2)
+    -- Cancel if user says no
+    if choice ~= 1 then return end
+    -- Enable force delete flag (after confirmation)
+    force = true
+  end
+  if is_scratch then
+    vim.api.nvim_buf_delete(bufnr, { force = force })
+  else
+    MiniBufRemove.delete(bufnr, force)
+  end
+end, "Smart delete buffer")
+-- Fast force delete
+nnoremap("<leader>bK", function() MiniBufRemove.delete(0, true) end, "Force delete buffer")
+nnoremap("<leader>bo", function()
+  local current = vim.api.nvim_get_current_buf()
+
+  for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
+    if bufnr ~= current and vim.bo[bufnr].buflisted then MiniBufRemove.delete(bufnr, false) end
+  end
+end, "Kill other buffers")
+nnoremap("<leader>ba", function()
+  for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
+    if vim.bo[bufnr].buflisted then MiniBufRemove.delete(bufnr, true) end
+  end
+end, "Close all buffers")
 
 -- Force close window keybinding
 nnoremap("<leader>wd", "<cmd>close<cr>", "Delete window")
