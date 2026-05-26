@@ -138,6 +138,7 @@ local fn_mappings = {
   ["."] = { Snacks.scratch, "Toggle scratch buffer" },
   ["S"] = { Snacks.scratch, "Select scratch buffer" },
   ["<Esc><Esc>"] = { Snacks.notifier.hide, "Dismiss all notifications" },
+  -- ["un"] = { Snacks.notifier.hide, "Dismiss all notifications" },
 }
 
 -- Toggles
