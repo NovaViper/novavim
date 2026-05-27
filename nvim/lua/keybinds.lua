@@ -152,7 +152,7 @@ nnoremap("<leader><S-Tab>", "gT", "Go to previous tab page")
 nnoremap("th", ":tabprev<CR>", "Previous tab")
 nnoremap("tl", ":tabnext<CR>", "Next Time")
 
-nnoremap("tf", ":tabnew New Tab<CR>", "Create new tab") -- Create fresh tab
+nnoremap("tt", ":tabnew New Tab<CR>", "Create new tab") -- Create fresh tab
 nnoremap("td", ":tabclose<CR>", "Close tab")
 nnoremap("t!", ":quit!<CR>", "Exist tab")
 
