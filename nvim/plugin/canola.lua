@@ -37,7 +37,7 @@ vim.g.canola = {
         })
       end,
     },
-    ["<leader>fg"] = {
+    ["<leader>/"] = {
       desc = "Live grep in the current directory",
       mode = "n",
       nowait = true,
@@ -64,5 +64,5 @@ vim.g.canola = {
     -- [""] = {},
   },
 }
-
-nnoremap("<leader>fd", canola.open_float, "Open canola")
+nnoremap("<leader>fD", function() canola.open_float(".") end, "Open Canola at current directory")
+nnoremap("<leader>fd", canola.open_float, "Open Canola")

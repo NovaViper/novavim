@@ -109,7 +109,11 @@ local picker_mappings = {
   ["gS"] = { "git_stash", "Git stash", { layout = "vertical" } },
   ["gd"] = { "git_diff", "Git diff (hunks)", { layout = "vertical" } },
 
-  -- Tasks
+  -- Search
+  ['s"'] = { "registers", "Registers" },
+  ["s/"] = { "search_history", "Search History" },
+  ["sk"] = { "keymaps", "Keymaps" },
+  ["sq"] = { "qflist", "Quickfix List" },
   ["st"] = { "todo_comments", "List TODO comments" },
   -- Taken from https://linkarzu.com/posts/neovim/snacks-picker/
   ["sT"] = {

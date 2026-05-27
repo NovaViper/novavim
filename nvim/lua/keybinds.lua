@@ -110,9 +110,6 @@ nnoremap("<leader>ba", function()
   end
 end, "Close all buffers")
 
--- Force close window keybinding
-nnoremap("<leader>wd", "<cmd>close<cr>", "Delete window")
-
 --- Better Basic keybindings
 -- Smart file creation, ask for a file name before creating a new file
 nnoremap("<leader>fn", function()
@@ -149,6 +146,9 @@ nnoremap("<leader>fs", function()
 end, "Save file")
 
 -- Tab management
+-- Leader + tab
+nnoremap("<leader><tab>", "gt", "Go to next tab page")
+nnoremap("<leader><S-Tab>", "gT", "Go to previous tab page")
 nnoremap("th", ":tabprev<CR>", "Previous tab")
 nnoremap("tl", ":tabnext<CR>", "Next Time")
 
