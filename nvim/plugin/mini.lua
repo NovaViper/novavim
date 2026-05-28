@@ -36,12 +36,12 @@ MiniBufRemove.setup()
 
 -- Keymap
 -- Mini.map keybindings
-nnoremap("<Leader>mc", MiniMap.close, "Close minimap")
-nnoremap("<Leader>mf", MiniMap.toggle_focus, "Toggle Focus on minimap")
-nnoremap("<Leader>mo", MiniMap.open, "Open minimap")
-nnoremap("<Leader>mr", MiniMap.refresh, "Refresh minimap")
-nnoremap("<Leader>ms", MiniMap.toggle_side, "Toggle position fo minimap")
-nnoremap("<Leader>mt", MiniMap.toggle, "Toggle minimap")
+nmap("<Leader>mc", MiniMap.close, "Close minimap")
+nmap("<Leader>mf", MiniMap.toggle_focus, "Toggle Focus on minimap")
+nmap("<Leader>mo", MiniMap.open, "Open minimap")
+nmap("<Leader>mr", MiniMap.refresh, "Refresh minimap")
+nmap("<Leader>ms", MiniMap.toggle_side, "Toggle position fo minimap")
+nmap("<Leader>mt", MiniMap.toggle, "Toggle minimap")
 
 -- Mini.comment keybindings
 -- Having separate `gc` and `gcc` binds breaks which-key. We remove the default

@@ -56,7 +56,7 @@ vim.g.snacks_animate = true
 --------
 -- Helper for standard Snacks.picker mappings
 local function map_picker(key, fn_name, desc, opts)
-  nnoremap(key, function()
+  nmap(key, function()
     if opts then
       Snacks.picker[fn_name](opts)
     else
@@ -67,7 +67,7 @@ end
 
 -- Helper for arbitrary functions
 local function map_fn(key, fn, desc, opts)
-  nnoremap(key, function()
+  nmap(key, function()
     if opts then
       fn(opts)
     else

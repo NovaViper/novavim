@@ -44,12 +44,12 @@ session.setup({
 })
 
 -- Really sweet restart mode
-nnoremap("<leader>re", function()
+nmap("<leader>re", function()
   vim.cmd("AutoSession save")
   vim.schedule(function() vim.cmd("restart") end)
 end, "Restart and restore session")
 
-nnoremap("<leader>rE", function()
+nmap("<leader>rE", function()
   vim.cmd("AutoSession delete")
   vim.schedule(function() vim.cmd("restart") end)
 end, "Restart without session")

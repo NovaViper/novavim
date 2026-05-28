@@ -11,21 +11,21 @@ vim.diagnostic.config({
 })
 
 -- Keymaps
-nnoremap("<leader>lr", vim.lsp.buf.rename, "Rename all references under cursor")
-noremap("<leader>lh", vim.lsp.buf.hover, "Display hover information about symbol under cursor") -- h for help/hover
-noremap("<leader>ld", function()
+nmap("<leader>lr", vim.lsp.buf.rename, "Rename all references under cursor")
+map("<leader>lh", vim.lsp.buf.hover, "Display hover information about symbol under cursor") -- h for help/hover
+map("<leader>ld", function()
   vim.diagnostic.open_float() -- d for diagnostics
 end, "Open diagnostics")
 
 -- Mode independent - will show code actions on selection if
 -- in visual mode
-noremap("<leader>la", vim.lsp.buf.code_action, "Run code action")
+map("<leader>la", vim.lsp.buf.code_action, "Run code action")
 -- i for implementation
-noremap("<leader>li", function() Snacks.picker.lsp_definitions() end, "Show code definitions")
+map("<leader>li", function() Snacks.picker.lsp_definitions() end, "Show code definitions")
 -- u for usage
-noremap("<leader>lu", function() Snacks.picker.lsp_references() end, "Show code usage")
+map("<leader>lu", function() Snacks.picker.lsp_references() end, "Show code usage")
 -- w for workspace (show diagnostics for all files)
-noremap("<leader>lw", function() Snacks.picker.diagnostics() end, "Show diagnostics from entire workspace")
+map("<leader>lw", function() Snacks.picker.diagnostics() end, "Show diagnostics from entire workspace")
 
 -- Open trouble
-mapany({ "n", "i" }, "<leader>lt", "<cmd>Trouble diagnostics toggle<cr>", "Open trouble")
+remapany({ "n", "i" }, "<leader>lt", "<cmd>Trouble diagnostics toggle<cr>", "Open trouble")

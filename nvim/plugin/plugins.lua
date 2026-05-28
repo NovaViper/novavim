@@ -25,10 +25,10 @@ require("codedocs").setup({
     python = { default_style = "Google" },
   },
 })
-nnoremap("<leader>k", "<cmd>Codedocs<CR>", "Insert annotation")
+nmap("<leader>k", "<cmd>Codedocs<CR>", "Insert annotation")
 -- Delete annotations with `dgc`
 
 -- Keep cursor centered to screen
 local stay_centered = require("stay-centered")
 stay_centered.setup({ skip_filetypes = { "terminal" } })
-noremapany({ "n", "v" }, "<leader>uc", stay_centered.toggle, "Toggle stay-centered.nvim")
+mapany({ "n", "v" }, "<leader>uc", stay_centered.toggle, "Toggle stay-centered.nvim")

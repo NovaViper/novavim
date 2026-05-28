@@ -64,5 +64,5 @@ vim.g.canola = {
     -- [""] = {},
   },
 }
-nnoremap("<leader>fD", function() canola.open_float(".") end, "Open Canola at current directory")
-nnoremap("<leader>fd", canola.open_float, "Open Canola")
+nmap("<leader>fD", function() canola.open_float(".") end, "Open Canola at current directory")
+nmap("<leader>fd", canola.open_float, "Open Canola")
