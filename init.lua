@@ -9,7 +9,7 @@ LZ = require("lze")
 LZE = require("lzextras")
 LZ.load({ import = LZE.mod_dir_to_spec("lazy") })
 
--- Add to this whenever you add a new server to the `lsp` folder!
+-- NOTE: Add to this whenever you add a new server to the `lsp` folder!
 -- Ridiculous that nvim can't load them for you as far as I can tell
 vim.lsp.enable({
   "bashls",

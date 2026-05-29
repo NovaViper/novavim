@@ -2,7 +2,7 @@
 return {
   settings = {
     Lua = {
-      -- Some advice from llakala
+      -- HACK: Some advice from llakala
       -- Note that lazydev doesn't follow this by default - I point to a fork.
       -- See https://github.com/folke/lazydev.nvim/pull/113
       workspace = {
