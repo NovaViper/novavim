@@ -1,5 +1,5 @@
 --- @module "lze"
---- @type lze.PluginSpec
+--- @type lze.PluginSpec[]
 return {
   {
     "copilot.lua",
