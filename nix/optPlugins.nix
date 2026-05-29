@@ -5,6 +5,7 @@ let
   # Plugins not available on nixpkgs
   customPlugins = {
     codecompanion-spinners-nvim = callPackage ./optPlugins/codecompanion-spinners.nix { };
+    lazydev-nvim = callPackage ./optPlugins/lazydev-nvim.nix { };
   };
 
   # Plugins from nixpkgs
