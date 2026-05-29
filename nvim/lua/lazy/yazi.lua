@@ -1,3 +1,5 @@
+--- @module "lze"
+--- @type lze.PluginSpec
 return {
   "yazi.nvim",
   event = "DeferredUIEnter",

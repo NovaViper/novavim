@@ -1,3 +1,5 @@
+--- @module "lze"
+--- @type lze.PluginSpec
 return {
   "which-key.nvim",
   event = "DeferredUIEnter",

@@ -1,3 +1,5 @@
+--- @module "lze"
+--- @type lze.PluginSpec
 return {
   { "codecompanion-spinners-nvim", dep_of = "codecompanion.nvim" },
   { "codecompanion-history.nvim", dep_of = "codecompanion.nvim" },

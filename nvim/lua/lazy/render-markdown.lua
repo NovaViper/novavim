@@ -1,3 +1,5 @@
+--- @module "lze"
+--- @type lze.PluginSpec
 return {
   "render-markdown.nvim",
   ft = { "markdown", "codecompanion" },

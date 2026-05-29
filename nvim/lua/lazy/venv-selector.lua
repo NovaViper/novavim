@@ -1,3 +1,5 @@
+--- @module "lze"
+--- @type lze.PluginSpec
 return {
   "venv-selector.nvim",
   ft = "python",
