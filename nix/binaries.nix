@@ -68,8 +68,6 @@ let
     ghostscript
     #mermaid-cli
 
-    # yazi
-    yazi
     cmake
   ];
 in
