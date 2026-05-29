@@ -25,7 +25,10 @@ mnw.lib.wrap pkgs {
     optAttrs = import ./nix/optPlugins.nix args;
 
     # Plugins which can be reloaded without rebuilding
-    dev.config = {
+    # HACK: Prefixing the name with _ to force the configs to be read first when
+    # iterating through all `plugin/` files. This prevents plugins (like canola)
+    # from trying to read vim.g.* values before they're set!
+    dev._config = {
       pure = ./nvim;
       impure = "~/Documents/Projects/novavim/nvim";
     };
