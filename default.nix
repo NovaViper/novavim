@@ -30,7 +30,7 @@ mnw.lib.wrap pkgs {
     # from trying to read vim.g.* values before they're set!
     dev._config = {
       pure = ./nvim;
-      impure = "~/Documents/Projects/novavim/nvim";
+      impure = "~/Projects/novavim/nvim";
     };
   };
 

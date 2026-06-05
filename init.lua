@@ -1,7 +1,7 @@
 -- Uncomment when you want to profile nvim startup. Be sure to have
 -- the snacks.nvim repo cloned for this to work!
 
---vim.opt.rtp:append("~/Documents/Repos/snacks.nvim")
+--vim.opt.rtp:append("~/Projects/ExtRepos/snacks.nvim")
 --require("snacks.profiler").startup()
 
 require("init")

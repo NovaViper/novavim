@@ -33,7 +33,7 @@ conform.setup({
 
     -- Where I store random cloned git repos
     -- I probably shouldn't be auto-formatting codebases that aren't mine
-    if bufname:match("/Documents/Repos/*") then return nil end
+    if bufname:match("/ExtRepos/*") then return nil end
 
     -- Calls conform.format(). We put our options in default_format_opts
     -- above, so they're applied when calling :fmt too
