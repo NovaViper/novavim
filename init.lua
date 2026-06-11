@@ -22,4 +22,5 @@ vim.lsp.enable({
   "basedpyright",
   "rust_analyzer",
   "yamlls",
+  "org",
 })
