@@ -1,12 +1,12 @@
 { fetchFromGitHub }:
 {
   name = "codedocs-nvim";
-  version = "2026-05-14";
+  version = "2026-05-30";
 
   src = fetchFromGitHub {
     owner = "jeangiraldoo";
     repo = "codedocs.nvim";
-    rev = "5dcd74b69d9eff5ae3ff97b33f3703b2058f3e1b";
-    hash = "sha256-y11cEukrEfzGmdHEEcHR7/a6bR/39kHPf03q70z9zTU=";
+    rev = "fd0893eb46056dd44e171b81ffd45468ed686977";
+    hash = "sha256-JzQ4DYhBWSNZGcXA1ChH0ObekeNcVCikdMhGgLcmzfQ=";
   };
 }
