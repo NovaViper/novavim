@@ -35,7 +35,7 @@ let
     mini-nvim
     todo-comments-nvim
     trouble-nvim
-    orgmode # TODO: Remove later
+    orgmode
     luasnip
 
     # Completions
