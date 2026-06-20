@@ -29,10 +29,6 @@ Snacks.setup({
       },
     },
   },
-  notifier = {
-    enabled = true,
-    style = "fancy", -- similar to the default nvim-notify style
-  },
   picker = {
     enabled = true,
     ui_select = true,
@@ -97,7 +93,6 @@ local picker_mappings = {
   ["/"] = { "grep", "Find with live grep" },
   ["="] = { "pick", "Start new picker" },
   ["-"] = { "resume", "Resume previous picker" },
-  ["n"] = { "notifications", "Notification History" },
   [":"] = { "command_history", "Command History" },
 
   -- Git
@@ -141,8 +136,6 @@ local fn_mappings = {
   ["<C-t>"] = { Snacks.terminal, "Terminal" },
   ["."] = { Snacks.scratch, "Toggle scratch buffer" },
   ["S"] = { Snacks.scratch, "Select scratch buffer" },
-  ["<Esc><Esc>"] = { Snacks.notifier.hide, "Dismiss all notifications" },
-  -- ["un"] = { Snacks.notifier.hide, "Dismiss all notifications" },
 }
 
 -- Toggles
