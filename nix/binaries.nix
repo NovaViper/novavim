@@ -15,6 +15,8 @@ let
     gnutls
     gcc
     fd
+    # yazi
+    yazi
 
     # copilot
     lua54Packages.tiktoken_core

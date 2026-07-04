@@ -8,8 +8,6 @@ let
 
   # Plugins not available on nixpkgs
   customPlugins = {
-    canola-nvim = callPackage ./startPlugins/canola-nvim.nix { };
-    canola-collection = callPackage ./startPlugins/canola-collection.nix { };
     gpg-nvim = callPackage ./startPlugins/gpg-nvim.nix { };
     codedocs-nvim = callPackage ./startPlugins/codedocs-nvim.nix { };
   };

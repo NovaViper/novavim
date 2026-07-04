@@ -13,6 +13,7 @@ let
     # Features
     which-key-nvim
     venv-selector-nvim
+    yazi-nvim
 
     # Pretty
     render-markdown-nvim
