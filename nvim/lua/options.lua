@@ -48,8 +48,10 @@ o.wrap = false
 -- Auto-wrap comments (but not other stuff, thanks to the `t` changes above)
 o.textwidth = 80
 
+-- Setup autobackups
 o.backup = false
-o.writebackup = false
+o.writebackup = true
+o.backupext = ".bak"
 
 -- Change leader key to space
 g.mapleader = " "
