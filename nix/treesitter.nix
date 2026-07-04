@@ -40,22 +40,8 @@ let
   #     typescript
   #   ]
   # );
-  # TODO: Until https://github.com/NixOS/nixpkgs/pull/530059 is merged
-  # extra-grammars = with pkgs.tree-sitter-grammars; [
-  #   tree-sitter-org
-  # ];
-  extra-grammars = [
-    (pkgs.tree-sitter.buildGrammar rec {
-      language = "org";
-      version = "2.0.4";
-      src = pkgs.fetchFromGitHub {
-        inherit version;
-        owner = "nvim-orgmode";
-        repo = "tree-sitter-org";
-        rev = "2.0.4";
-        hash = "sha256-76ImC8GMW+yAKG++AHryUi+MYTmtJ5ogygC+bgNMErA=";
-      };
-    })
+  extra-grammars = with pkgs.tree-sitter-grammars; [
+    tree-sitter-org
   ];
 in
 [ my-treesitter ] ++ extra-grammars
