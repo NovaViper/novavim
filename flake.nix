@@ -14,16 +14,7 @@
       inherit (nixpkgs) lib;
       supportedSystems = [ "x86_64-linux" ];
       forAllSystems =
-        function:
-        lib.genAttrs supportedSystems (
-          system:
-          function (
-            import nixpkgs {
-              localSystem = system;
-              config.allowUnfree = true;
-            }
-          )
-        );
+        function: lib.genAttrs supportedSystems (system: function nixpkgs.legacyPackages.${system});
     in
     {
       packages = forAllSystems (pkgs: {
