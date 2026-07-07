@@ -14,12 +14,6 @@ require("rainbow-delimiters.setup").setup({
   },
 })
 
-require("nvim-treesitter.config").setup({
-  highlight = {
-    enable = true,
-  },
-})
-
 require("codedocs").setup({
   languages = {
     python = { default_style = "Google" },
