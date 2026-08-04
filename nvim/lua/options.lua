@@ -7,6 +7,10 @@ local g = vim.g
 
 -- Show partial commands in the last line of the screen
 o.showcmd = true
+-- Disable since we're using lualine
+o.showmode = false
+-- Hide the command line unless needed
+o.cmdheight = 0
 
 -- Set to system clipboard
 o.clipboard = "unnamedplus"
@@ -30,6 +34,8 @@ o.hlsearch = true
 -- Use case-sensitive search if any of the search characters are uppercase
 o.smartcase = true
 
+-- Declare folds based on indention
+o.foldmethod = "indent"
 -- Copy indention from previous line when starting new line
 o.autoindent = true
 -- spaces as tab
