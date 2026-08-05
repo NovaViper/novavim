@@ -34,6 +34,8 @@ o.hlsearch = true
 -- Use case-sensitive search if any of the search characters are uppercase
 o.smartcase = true
 
+-- Use `zi` for folds
+o.foldenable = false
 -- Declare folds based on indention
 o.foldmethod = "indent"
 -- Copy indention from previous line when starting new line
