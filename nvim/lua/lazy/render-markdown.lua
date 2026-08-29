@@ -2,12 +2,12 @@
 --- @type lze.PluginSpec
 return {
   "render-markdown.nvim",
-  ft = { "markdown", "codecompanion" },
+  ft = { "markdown" },
   after = function()
     vim.o.wrap = true
 
     require("render-markdown").setup({
-      file_types = { "markdown", "codecompanion" },
+      file_types = { "markdown" },
       completions = { lsp = { enabled = true }, blink = { enabled = true } },
 
       render_modes = true,

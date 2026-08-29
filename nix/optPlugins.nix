@@ -4,7 +4,6 @@ let
 
   # Plugins not available on nixpkgs
   customPlugins = {
-    codecompanion-spinners-nvim = callPackage ./optPlugins/codecompanion-spinners.nix { };
     lazydev-nvim = callPackage ./optPlugins/lazydev-nvim.nix { };
   };
 
@@ -22,13 +21,10 @@ let
     copilot-lua
     blink-copilot
     # copilot-lualine
-    codecompanion-nvim
-    codecompanion-history-nvim
   ];
 
   # Disables/overrides for start plugins
   overrides = {
-    "codecompanion.nvim" = null;
   };
 
   # Convert list to attrset
