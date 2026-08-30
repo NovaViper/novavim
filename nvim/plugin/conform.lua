@@ -1,5 +1,10 @@
 conform = require("conform")
 
+local whitelisted_paths = {}
+local blacklisted_paths = {
+  "/Projects/ExtRepos/*",
+}
+
 conform.setup({
   formatters_by_ft = {
     nix = { "nixfmt" },
@@ -26,22 +31,31 @@ conform.setup({
   format_on_save = nil,
 
   format_after_save = function(bufnr)
-    -- Be sure to use `vim.b`, not anything else like `vim.o`
-    if vim.b[bufnr].disable_autoformat then return nil end
-
-    local bufname = vim.api.nvim_buf_get_name(bufnr)
-
-    -- Where I store random cloned git repos
-    -- I probably shouldn't be auto-formatting codebases that aren't mine
-    if bufname:match("/ExtRepos/*") then return nil end
-
     -- Calls conform.format(). We put our options in default_format_opts
     -- above, so they're applied when calling :fmt too
-    return { async = true }
+    local success = { async = true }
+    local failure = nil
+
+    -- Priority 1: current buffer disabled
+    -- Be sure to use `vim.b`, not anything else like `vim.o`
+    if vim.b[bufnr].disable_autoformat then return failure end
+
+    -- Priority 2: current path whitelisted
+    local bufname = vim.api.nvim_buf_get_name(bufnr)
+    for _, pattern in ipairs(whitelisted_paths) do
+      if bufname:match(pattern) then return success end
+    end
+
+    -- Priority 3: current path blacklisted
+    for _, pattern in ipairs(blacklisted_paths) do
+      if bufname:match(pattern) then return failure end
+    end
+
+    return success
   end,
 })
 
-vim.api.nvim_create_user_command("Fmt", function(args)
+vim.api.nvim_create_user_command("Format", function(args)
   local range = nil
 
   if args.count ~= -1 then
@@ -54,10 +68,10 @@ vim.api.nvim_create_user_command("Fmt", function(args)
   end
 
   conform.format({ range = range, async = true })
-end, { range = true })
+end, { range = true, bar = true })
 
 -- Called when auto-format is disabled for a language or folder,
 -- but we want to format it anyways
-cabbrev("fmt", "Fmt")
+cabbrev("fmt", "Format:want")
 
 vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
