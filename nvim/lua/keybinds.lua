@@ -76,44 +76,13 @@ vmap(">", ">gv")
 nmap("<Esc>", "<cmd>nohlsearch<CR>")
 nmap("<leader>fN", "<cmd>ene | startinsert<cr>", "Create a new empty file")
 
--- mini.bufremove
--- Smart delete
-nmap("<leader>bk", function()
-  local bufnr = vim.api.nvim_get_current_buf()
-  local force = false
-  -- Scratch / special buffers
-  local is_scratch = vim.bo[bufnr].buftype ~= ""
-    or vim.bo[bufnr].buflisted == false
-    or vim.api.nvim_buf_get_name(bufnr) == ""
-
-  if vim.bo[bufnr].modified then
-    -- See :help confirm() for more info
-    local choice = vim.fn.confirm("Buffer has unsaved changes. Delete anyway?", "&Yes\n&No", 2)
-    -- Cancel if user says no
-    if choice ~= 1 then return end
-    -- Enable force delete flag (after confirmation)
-    force = true
-  end
-  if is_scratch then
-    vim.api.nvim_buf_delete(bufnr, { force = force })
-  else
-    MiniBufRemove.delete(bufnr, force)
-  end
-end, "Smart delete buffer")
--- Fast force delete
-nmap("<leader>bK", function() MiniBufRemove.delete(0, true) end, "Force delete buffer")
-nmap("<leader>bo", function()
-  local current = vim.api.nvim_get_current_buf()
-
-  for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
-    if bufnr ~= current and vim.bo[bufnr].buflisted then MiniBufRemove.delete(bufnr, false) end
-  end
-end, "Kill other buffers")
-nmap("<leader>ba", function()
-  for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
-    if vim.bo[bufnr].buflisted then MiniBufRemove.delete(bufnr, true) end
-  end
-end, "Close all buffers")
+-- Much nicer delete operations; can actually force delete modified buffer
+-- windows whilst keeping the window state
+BufDeluxe = require("custom.bufdeluxe")
+nmap("<leader>bd", function() BufDeluxe.smart_delete() end, "Delete buffer (smart)")
+nmap("<leader>bD", function() BufDeluxe.delete(vim.api.nvim_get_current_buf(), true) end, "Force delete buffer")
+nmap("<leader>bo", function() BufDeluxe.delete_others() end, "Kill other buffers")
+nmap("<leader>ba", function() BufDeluxe.delete_all() end, "Close all buffers")
 
 --- Better Basic keybindings
 -- Smart file creation, ask for a file name before creating a new file

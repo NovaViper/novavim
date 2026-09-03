@@ -9,3 +9,5 @@ require("lsp")
 require("autocmds.suspend")
 require("autocmds.notifs")
 require("autocmds.ui2")
+
+require("custom.bufdeluxe")
