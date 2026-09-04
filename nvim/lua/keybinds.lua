@@ -74,50 +74,19 @@ vmap(">", ">gv")
 
 -- Clear highlights on search when pressing <Esc> in normal mode from kickstart
 nmap("<Esc>", "<cmd>nohlsearch<CR>")
-nmap("<leader>fN", "<cmd>ene | startinsert<cr>", "Create a new empty file")
 
 -- Much nicer delete operations; can actually force delete modified buffer
 -- windows whilst keeping the window state
 BufDeluxe = require("custom.bufdeluxe")
-nmap("<leader>bd", function() BufDeluxe.smart_delete() end, "Delete buffer (smart)")
-nmap("<leader>bD", function() BufDeluxe.delete(vim.api.nvim_get_current_buf(), true) end, "Force delete buffer")
-nmap("<leader>bo", function() BufDeluxe.delete_others() end, "Kill other buffers")
-nmap("<leader>ba", function() BufDeluxe.delete_all() end, "Close all buffers")
+nmap("<leader>bx", BufDeluxe.smart_delete, "Delete buffer (smart)")
+nmap("<leader>bX", function() BufDeluxe.delete(vim.api.nvim_get_current_buf(), true) end, "Force delete buffer")
+nmap("<leader>bo", BufDeluxe.delete_others, "Kill other buffers")
+nmap("<leader>ba", BufDeluxe.delete_all, "Close all buffers")
 
 --- Better Basic keybindings
--- Smart file creation, ask for a file name before creating a new file
-nmap("<leader>fn", function()
-  -- Prompt the user for the filename
-  local filename = vim.fn.input("Enter Filename: ")
-  -- Check if the filename is empty
-  if filename ~= "" then
-    -- Use vim's 'edit' command to create a new file
-    vim.cmd("edit " .. filename)
-    vim.cmd("startinsert")
-  else
-    vim.notify("Filename cannot be empty")
-  end
-end, "Create a new named file")
-
--- Smart file save, don't prompt when it's an existing file but prompt when it's
--- a new file
-nmap("<leader>fs", function()
-  if
-    vim.api.nvim_get_option_value("buflisted", { buf = 0 })
-    and not vim.api.nvim_get_option_value("readonly", { buf = 0 })
-  then -- disregard unlisted buffers
-    local filename = ""
-    local curbuf = vim.api.nvim_buf_get_name(0)
-    if not curbuf ~= nil then -- If there is no name given
-      filename = curbuf
-    else
-      filename = vim.fn.input("Enter Filename: ")
-    end
-    vim.cmd("write " .. filename)
-  else
-    vim.notify("Buffer is not writable or is unlisted")
-  end
-end, "Save file")
+nmap("<leader>be", "<cmd>ene | startinsert<cr>", "Create a new empty buffer")
+nmap("<leader>bE", BufDeluxe.new_named_file, "Create a new named file")
+nmap("<leader>bs", BufDeluxe.save, "Save file")
 
 -- Tab management
 -- Leader + tab

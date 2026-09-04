@@ -13,9 +13,8 @@ vim.diagnostic.config({
 -- Keymaps
 nmap("<leader>lr", vim.lsp.buf.rename, "Rename all references under cursor")
 map("<leader>lh", vim.lsp.buf.hover, "Display hover information about symbol under cursor") -- h for help/hover
-map("<leader>ld", function()
-  vim.diagnostic.open_float() -- d for diagnostics
-end, "Open diagnostics")
+map("<leader>ld", vim.diagnostic.open_float, "Show diagnostics under the cursor")
+vim.keymap.del("n", "<C-W>d") -- Unmap default keybinding for opening diagnostics
 
 -- Mode independent - will show code actions on selection if
 -- in visual mode
