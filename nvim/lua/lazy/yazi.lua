@@ -5,8 +5,8 @@ return {
   event = "DeferredUIEnter",
   cmd = "Yazi", -- Lazy load on yazi command
   keys = {
-    { "<leader>fd", "<cmd>Yazi<cr>", desc = "Find directory with yazi" },
-    { "<leader>fF", "<cmd>Yazi cwd<cr>", desc = "Open yazi at working directory" },
+    { "<leader>fyd", "<cmd>Yazi<cr>", desc = "Find directory with yazi" },
+    { "<leader>fyD", "<cmd>Yazi cwd<cr>", desc = "Open yazi at working directory" },
     { "<c-y>", "<cmd>Yazi toggle<cr>", desc = "Resume the last yazi session" },
   },
   after = function()
