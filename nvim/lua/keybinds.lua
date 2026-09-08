@@ -72,8 +72,11 @@ map("pp", "p`[myv`]=`y")
 vmap("<", "<gv")
 vmap(">", ">gv")
 
--- Clear highlights on search when pressing <Esc> in normal mode from kickstart
-nmap("<Esc>", "<cmd>nohlsearch<CR>")
+-- Make <Esc> clear search highlights
+nmap("<Esc>", function()
+  vim.cmd("nohlsearch|diffupdate")
+  vim.api.nvim_buf_clear_namespace(0, vim.api.nvim_create_namespace("nvim.multicursor"), 0, -1)
+end)
 
 -- Much nicer delete operations; can actually force delete modified buffer
 -- windows whilst keeping the window state
