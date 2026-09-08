@@ -11,7 +11,17 @@ mnw.lib.wrap pkgs {
     "vi"
     "vim"
   ];
-  neovim = pkgs.neovim-unwrapped;
+  # neovim = pkgs.neovim-unwrapped;
+  neovim = pkgs.neovim-unwrapped.overrideAttrs (oldAttrs: {
+    doCheck = false;
+    doInstallCheck = false;
+    src = pkgs.fetchFromGitHub {
+      owner = "neovim";
+      repo = "neovim";
+      rev = "48864161cd75ae4b58f7af94d6c9add0ba876107";
+      hash = "sha256-e0vtGzeibyUiVO91sx/WyMt+D1JLF9fSu8kwjFZc7h8="; # pkgs.lib.fakeHash
+    };
+  });
   luaFiles = [ ./init.lua ];
 
   plugins = {
