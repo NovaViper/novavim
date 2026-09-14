@@ -26,3 +26,11 @@ nmap("<leader>k", "<cmd>Codedocs<CR>", "Insert annotation")
 local stay_centered = require("stay-centered")
 stay_centered.setup({ skip_filetypes = { "terminal" } })
 mapany({ "n", "v" }, "<leader>uc", stay_centered.toggle, "Toggle stay-centered.nvim")
+
+local tiny_cmdline = require("tiny-cmdline")
+tiny_cmdline.setup({
+  on_reposition = tiny_cmdline.adapters.blink,
+  title = { enabled = true },
+  width = { value = "50%" },
+  position = { y = "10%" },
+})

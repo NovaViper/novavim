@@ -26,6 +26,7 @@ let
 
     # Features
     tiny-inline-diagnostic-nvim
+    tiny-cmdline-nvim
     auto-session
     conform-nvim
     ts-comments-nvim
