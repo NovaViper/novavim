@@ -81,15 +81,15 @@ end)
 -- Much nicer delete operations; can actually force delete modified buffer
 -- windows whilst keeping the window state
 BufDeluxe = require("custom.bufdeluxe")
-nmap("<leader>bx", BufDeluxe.smart_delete, "Delete buffer (smart)")
-nmap("<leader>bX", function() BufDeluxe.delete(vim.api.nvim_get_current_buf(), true) end, "Force delete buffer")
-nmap("<leader>bo", BufDeluxe.delete_others, "Kill other buffers")
-nmap("<leader>ba", BufDeluxe.delete_all, "Close all buffers")
+nmap("<leader>fq", BufDeluxe.smart_delete, "Delete buffer (smart)")
+nmap("<leader>fQ", function() BufDeluxe.delete(vim.api.nvim_get_current_buf(), true) end, "Force delete buffer")
+nmap("<leader>fo", BufDeluxe.delete_others, "Kill other buffers")
+nmap("<leader>fa", BufDeluxe.delete_all, "Close all buffers")
 
 --- Better Basic keybindings
-nmap("<leader>be", "<cmd>ene | startinsert<cr>", "Create a new empty buffer")
-nmap("<leader>bE", BufDeluxe.new_named_file, "Create a new named file")
-nmap("<leader>bs", BufDeluxe.save, "Save file")
+nmap("<leader>fe", "<cmd>ene | startinsert<cr>", "Create a new empty buffer")
+nmap("<leader>fE", BufDeluxe.new_named_file, "Create a new named file")
+nmap("<leader>fs", BufDeluxe.save, "Save file")
 
 -- Tab management
 -- Leader + tab
