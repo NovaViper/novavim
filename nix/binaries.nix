@@ -32,7 +32,7 @@ let
     vscode-langservers-extracted
     yaml-language-server
     ## Copilot
-    nodejs-slim_latest
+    nodejs-slim
     ## Nix
     nixd
     nixfmt
