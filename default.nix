@@ -48,5 +48,9 @@ mnw.lib.wrap pkgs {
   extraBinPath = import ./nix/binaries.nix { inherit pkgs; };
 
   # Extra lua packages (non vim plugins) to put into neovim's PATH
-  extraLuaPackages = ps: [ ps.magick ];
+  extraLuaPackages = ps: [
+    ps.magick
+    # lua-snippet
+    ps.jsregexp
+  ];
 }

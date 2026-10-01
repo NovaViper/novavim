@@ -15,6 +15,7 @@ let
     gnutls
     gcc
     fd
+    unzip
     # yazi
     yazi
 
@@ -23,11 +24,7 @@ let
     curl
     file
 
-    # lua-snippet
-    lua54Packages.jsregexp
-
     # LSP tools
-    semgrep
     tree-sitter
     vscode-langservers-extracted
     yaml-language-server
@@ -68,7 +65,7 @@ let
     imagemagick
 
     ghostscript
-    #mermaid-cli
+    mermaid-cli
 
     cmake
   ];
