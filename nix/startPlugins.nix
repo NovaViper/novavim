@@ -52,7 +52,7 @@ let
     diffview-nvim
 
     # Neat
-    bufferline-nvim
+    nvim-cokeline
     lualine-nvim
     cord-nvim
     stay-centered-nvim
