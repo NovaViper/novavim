@@ -18,8 +18,8 @@ mnw.lib.wrap pkgs {
     src = pkgs.fetchFromGitHub {
       owner = "neovim";
       repo = "neovim";
-      rev = "48864161cd75ae4b58f7af94d6c9add0ba876107";
-      hash = "sha256-e0vtGzeibyUiVO91sx/WyMt+D1JLF9fSu8kwjFZc7h8="; # pkgs.lib.fakeHash
+      rev = "5c4a725f1da234cae8a244a5f799350de3a65a78";
+      hash = "sha256-808928kbXnJDkveuQWxeEbGP2Bx39CZFG/pw7zPSnQA="; # pkgs.lib.fakeHash
     };
   });
   luaFiles = [ ./init.lua ];
@@ -49,8 +49,7 @@ mnw.lib.wrap pkgs {
 
   # Extra lua packages (non vim plugins) to put into neovim's PATH
   extraLuaPackages = ps: [
-    ps.magick
-    # lua-snippet
+    ps.magick # lua-snippet
     ps.jsregexp
   ];
 }
