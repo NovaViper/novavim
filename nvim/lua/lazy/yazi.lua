@@ -7,7 +7,7 @@ return {
   keys = {
     { "<leader>fyd", "<cmd>Yazi<cr>", desc = "Find directory with yazi" },
     { "<leader>fyD", "<cmd>Yazi cwd<cr>", desc = "Open yazi at working directory" },
-    { "<c-y>", "<cmd>Yazi toggle<cr>", desc = "Resume the last yazi session" },
+    { "<leader>Y", "<cmd>Yazi toggle<cr>", desc = "Resume the last yazi session" },
   },
   after = function()
     local Yazi = require("yazi")
