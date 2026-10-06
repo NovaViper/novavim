@@ -20,6 +20,7 @@ let
     catppuccin-nvim
 
     # Basic essentials
+    nvim-treesitter.withAllGrammars
     nvim-lspconfig
     lze
     lzextras

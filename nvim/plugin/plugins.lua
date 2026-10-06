@@ -14,6 +14,22 @@ require("rainbow-delimiters.setup").setup({
   },
 })
 
+-- Enable synchronous treesitter parsing to prevent flashing
+vim.g._ts_force_sync_parsing = true
+-- Enable treesitter for all filetypes, unless explicitly disabled
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = vim.treesitter.language._complete(),
+  group = vim.api.nvim_create_augroup("LoadTreesitter", {}),
+  callback = function()
+    if not vim.b.disable_treesitter then
+      -- Enable syntax highlighting
+      vim.treesitter.start()
+      -- Enable treesitter-based indentation
+      vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+    end
+  end,
+})
+
 require("codedocs").setup({
   languages = {
     python = { default_style = "Google" },
