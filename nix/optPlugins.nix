@@ -17,7 +17,8 @@ let
     # Pretty
     render-markdown-nvim
 
-    # Copilot
+    # AI
+    ## Copilot
     copilot-lua
     blink-copilot
     # copilot-lualine
