@@ -26,5 +26,9 @@ lualine.setup({
         end,
       },
     },
+    lualine_c = {
+      require("custom.copilot_status").component,
+      "filename",
+    },
   },
 })

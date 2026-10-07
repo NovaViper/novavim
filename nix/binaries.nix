@@ -19,7 +19,18 @@ let
     # yazi
     yazi
 
-    # copilot
+    # AI
+    lsof
+    ## ACPs
+    mcp-server-sequential-thinking
+    ## Codex
+    codex
+    codex-acp
+    ## Claude Code
+    claude-code
+    claude-agent-acp
+    ## Copilot
+    github-copilot-cli
     lua54Packages.tiktoken_core
     curl
     file
