@@ -20,6 +20,7 @@ return {
       { "<leader>f", group = "file" }, -- group
       { "<leader>fn", desc = "Create New File/Buffer" },
       { "<leader>w", proxy = "<c-w>", group = "windows" }, -- proxy to window mappings
+      { "<leader>a", group = "ai" }, -- sidekick mappings
     })
   end,
 }
