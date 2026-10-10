@@ -19,6 +19,9 @@ session.setup({
 
   legacy_cmds = false,
 
+  -- Don't save these things.. they are messy
+  close_filetypes_on_save = { "checkhealth", "sidekick_terminal" },
+
   -- Integration with barbar and scope
   pre_save_cmds = {
     function()

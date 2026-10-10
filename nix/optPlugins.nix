@@ -18,6 +18,8 @@ let
     render-markdown-nvim
 
     # AI
+    # Integration
+    sidekick-nvim
     ## Copilot
     copilot-lua
     blink-copilot
