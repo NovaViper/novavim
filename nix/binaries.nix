@@ -26,6 +26,7 @@ let
     ## Codex
     codex
     codex-acp
+    bubblewrap
     ## Claude Code
     claude-code
     claude-agent-acp
