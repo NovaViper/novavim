@@ -2,12 +2,12 @@
 # Retrieved via nurl https://github.com/barrettruth/canola-collection
 {
   name = "canola-collection";
-  version = "2026-04-25";
+  version = "2026-10-31";
 
   src = fetchFromGitHub {
     owner = "barrettruth";
     repo = "canola-collection";
-    rev = "8566c09080c3084db1ffba21dec53e2b4235daed";
-    hash = "sha256-iQh/QeKeELxNsWsWPO/GsNiYdXhZM7vv7Q0uQjO4sJE=";
+    rev = "970a1920d18a2172627da1c2f17cfe53fa4d6871";
+    hash = "sha256-xZNpVXKZ/Ev2fhz/cC0AI+2lfGSF9g2p8YRZf6PGq10=";
   };
 }
