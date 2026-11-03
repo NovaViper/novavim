@@ -38,6 +38,7 @@ let
     trouble-nvim
     orgmode
     luasnip
+    friendly-snippets
 
     # Completions
     blink-cmp
