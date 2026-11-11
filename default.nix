@@ -18,8 +18,8 @@ mnw.lib.wrap pkgs {
     src = pkgs.fetchFromGitHub {
       owner = "neovim";
       repo = "neovim";
-      rev = "6edb38ca982c96645185c82c1f5b5cb474487f71";
-      hash = "sha256-wXdoj2iImcMsV4osZll+KcVYkCKGgtmZYx5glgGAvQs="; # pkgs.lib.fakeHash;
+      rev = "5a53f3bb9e41e5d2866545323d6fd0d160dc31c4";
+      hash = "sha256-mJ+1uOB5L1ulhOFyZXWIpLaJwUgpkgRRq8cqk/En58s="; # pkgs.lib.fakeHash;
     };
   });
   luaFiles = [ ./init.lua ];
