@@ -22,7 +22,9 @@ mnw.lib.wrap pkgs {
       hash = "sha256-mJ+1uOB5L1ulhOFyZXWIpLaJwUgpkgRRq8cqk/En58s="; # pkgs.lib.fakeHash;
     };
   });
-  luaFiles = [ ./init.lua ];
+  initLua = ''
+    require("init")
+  '';
 
   plugins = {
     # List of plugins to load automatically
