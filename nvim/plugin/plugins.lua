@@ -50,3 +50,6 @@ tiny_cmdline.setup({
   width = { value = "50%" },
   position = { y = "10%" },
 })
+
+require("img-clip").setup()
+nmap("<leader>ip", "<cmd>PasteImage<CR>", "Paste image from clipboard")

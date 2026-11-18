@@ -47,6 +47,7 @@ let
     nvim-highlight-colors
     rainbow-delimiters-nvim
     gitsigns-nvim
+    img-clip-nvim
     vim-tpipeline # Tmux
 
     # git setup

@@ -127,6 +127,17 @@ local picker_mappings = {
       args = { "--no-ignore" },
     },
   },
+  ["p"] = {
+    "files",
+    "Pictures",
+    {
+      ft = { "png", "jpg", "jpeg", "gif", "bmp", "tiff" },
+      confirm = function(self, item, _)
+        self:close()
+        require("img-clip").paste_image({}, "./" .. item.file)
+      end,
+    },
+  },
 }
 
 -- Table for other Snacks mappings
